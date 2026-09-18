@@ -33,7 +33,6 @@ public ItemPedido(String nome, double valor){
     public double getValor() {
         return valor;
     }
-0
     public void setValor(double valor) {
         this.valor = valor;
     }
