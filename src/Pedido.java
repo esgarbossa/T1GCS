@@ -1,21 +1,24 @@
 import java.util.Scanner;
-public class Pedidos implements IntPedidos {
+public class Pedido implements IntPedidos {
     private ItemPedido item;
     private Usuario funcionario;
+    private String descricao;
     private String dataConclusao;
     private String status;
 
 
 
-    public Pedidos(ItemPedido item,Usuario funcionario,String dataConclusao,String status){
+    public Pedido(ItemPedido item,Usuario funcionario,String descricao,String dataConclusao,String status){
         this.item=item;
         this.funcionario=funcionario;
+        this.descricao=dataConclusao;
         this.dataConclusao=dataConclusao;
         this.status=status;
     }
-    public Pedidos(){
+    public Pedido(){
         this.item= new ItemPedido();
         this.funcionario=null;//TO DO
+        this.descricao=null;
         this.dataConclusao="";
         this.status="";
     }
@@ -25,12 +28,25 @@ public class Pedidos implements IntPedidos {
     public void cadastroPedido(Scanner in){
         this.item.cadastrtoItem(in);
         //TO DO cadastro funcionario
+
         System.out.println("Digite a data de conclusao: ");
         String dataConclusao=in.nextLine();
         this.setDataConclusao(dataConclusao);
 
+        System.out.println("Escreva uma breve descrição do pedido");
+        String descricao=in.nextLine();
+        this.setDescricao(descricao);
+
         this.setStatus("Aberto");
 
+    }
+
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
     }
 
     public ItemPedido getItem() {
