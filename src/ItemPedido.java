@@ -13,13 +13,18 @@ public ItemPedido(String nome, double valor){
         this.valor=0;
     }
     public void cadastrtoItem(Scanner in){
-        System.out.println("Digite o nome do item: ");
+        System.out.println("Digite a descricao do item: ");
         String nome = in.nextLine();
         this.setNome(nome);
 
         System.out.println("Digite o valor do item: ");
         double valor=in.nextDouble();
         this.setValor(valor);
+    }
+
+    public void resumoItem(){
+        System.out.println("Descrição do Item: " + this.getNome());
+        System.out.println("Valor do Item: " + this.getValor());
     }
 
     public String getNome() {
