@@ -13,11 +13,11 @@ public class App {
 
     public void getPedidoDescricao(String descricao) {
         for(int i =0;i < pedidos.size();i++){
-            if(pedidos.get(i).getDescricao().equals(descricao)){
-                System.out.println(pedidos.get(i).getDescricao());
+            ItemPedido item = pedidos.get(i).getItem();
+            if(item.getNome().equals(descricao)){
+                item.resumoItem();
             }
         }
-
     }
 
     public ArrayList<Pedido> getPedidos() {

@@ -1,15 +1,15 @@
 import java.util.Scanner;
 public class ItemPedido{
 
-private String nome;
+private String descricao;
 private double valor;
 
 public ItemPedido(String nome, double valor){
-    this.nome=nome;
+    this.descricao=nome;
     this.valor=valor;
 }
     public ItemPedido(){
-        this.nome="";
+        this.descricao="";
         this.valor=0;
     }
     public void cadastrtoItem(Scanner in){
@@ -28,16 +28,17 @@ public ItemPedido(String nome, double valor){
     }
 
     public String getNome() {
-        return nome;
+        return descricao;
     }
 
     public void setNome(String nome) {
-        this.nome = nome;
+        this.descricao = nome;
     }
 
     public double getValor() {
         return valor;
     }
+
     public void setValor(double valor) {
         this.valor = valor;
     }
