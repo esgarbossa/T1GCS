@@ -12,7 +12,7 @@ public ItemPedido(String nome, double valor){
         this.descricao="";
         this.valor=0;
     }
-    public void cadastrtoItem(Scanner in){
+    public void cadastroItem(Scanner in){
         System.out.println("Digite a descricao do item: ");
         String nome = in.nextLine();
         this.setNome(nome);

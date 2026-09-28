@@ -1,6 +1,8 @@
 import java.util.Scanner;
+import java.util.ArrayList;
+
 public class Pedido implements IntPedidos {
-    private ItemPedido item;
+    private ArrayList<ItemPedido> item;
     private Usuario funcionario;
     private String descricao;
     private String dataConclusao;
@@ -8,7 +10,7 @@ public class Pedido implements IntPedidos {
 
 
 
-    public Pedido(ItemPedido item,Usuario funcionario,String descricao,String dataConclusao,String status){
+    public Pedido(ArrayList<ItemPedido> item,Usuario funcionario,String descricao,String dataConclusao,String status){
         this.item=item;
         this.funcionario=funcionario;
         this.descricao=dataConclusao;
@@ -16,7 +18,7 @@ public class Pedido implements IntPedidos {
         this.status=status;
     }
     public Pedido(){
-        this.item= new ItemPedido();
+        this.item= new ArrayList<ItemPedido>();
         this.funcionario=null;//TO DO
         this.descricao=null;
         this.dataConclusao="";
@@ -25,8 +27,33 @@ public class Pedido implements IntPedidos {
     public void changeStatus(){
 
     }
+
+    public void cadastroItem(Scanner in){
+        System.out.println("Digite a descricao do item: ");
+        String nome = in.nextLine();
+
+        System.out.println("Digite o valor do item: ");
+        double valor = in.nextDouble();
+
+        ItemPedido item = new ItemPedido(nome,valor);
+        this.item.add(item);
+
+        System.out.println("1 - Cadastrar novo item");
+        System.out.println("2 - Sair");
+        int opcao = in.nextInt();
+
+        switch(opcao){
+            case 1:
+                cadastroItem(in);
+                break;
+            case 2:
+                break;
+        }
+
+    }
+
     public void cadastroPedido(Scanner in){
-        this.item.cadastrtoItem(in);
+        this.cadastroItem(in);
         //TO DO cadastro funcionario
 
         System.out.println("Digite a data de conclusao: ");
@@ -49,11 +76,11 @@ public class Pedido implements IntPedidos {
         this.descricao = descricao;
     }
 
-    public ItemPedido getItem() {
+    public ArrayList<ItemPedido> getItem() {
         return item;
     }
 
-    public void setItem(ItemPedido item) {
+    public void setItem(ArrayList<ItemPedido> item) {
         this.item = item;
     }
 
