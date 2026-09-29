@@ -1,4 +1,6 @@
 public abstract class Usuario {
+    public int matricula;
+    //a
 
     private int matricula;
 
