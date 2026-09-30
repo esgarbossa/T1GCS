@@ -12,18 +12,10 @@ public class Test {
 
         ArrayList<ItemPedido> itemPedido = new ArrayList();
 
-        ItemPedido item = new ItemPedido();
-        item.cadastroItem(in);
+        ItemPedido item1= new ItemPedido("A", 100);
+        ItemPedido item2= new ItemPedido("A", 100);
+        ItemPedido item3= new ItemPedido("A", 100);
 
-        itemPedido.add(item);
-
-        pedido.setItem(itemPedido);
-
-        ArrayList<Pedido> pedidos = new ArrayList();
-
-        pedidos.add(pedido);
-
-        app.setPedidos(pedidos);
 
         app.mostrarPedidos();
 

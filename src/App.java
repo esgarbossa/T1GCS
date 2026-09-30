@@ -11,7 +11,7 @@ public class App {
         this.usuarios = new ArrayList<>();
     }
 
-    public void getPedidoDescricao(String descricao) {
+    public void buscarPorItem(String descricao) {
         for(int i =0;i < pedidos.size();i++){
             ItemPedido item = pedidos.get(i).getItem().get(i);
             if(item.getNome().equals(descricao)){
