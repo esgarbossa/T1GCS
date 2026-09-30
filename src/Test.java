@@ -27,10 +27,18 @@ public class Test {
 
         Pedido pedido1 = new Pedido();
 
+        Pedido pedido2 = new Pedido();
+
+        pedido1.setItem(itens1);
+
+        pedido2.setItem(itens2);
+
         ArrayList<Pedido> pedidos = new ArrayList<>();
 
+        pedidos.add(pedido1);
+        pedidos.add(pedido2);
 
-
+        app.setPedidos(pedidos);
 
         app.mostrarPedidos();
 
