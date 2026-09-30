@@ -1,10 +1,36 @@
+import java.util.Scanner;
+
 public abstract class Usuario {
     public int matricula;
-    //a
+    public String nome;
 
-    private int matricula;
+    public Usuario(){
+        this.matricula = 0;
+        this.nome = "";
+    }
 
-    private String nome;
+    public Usuario(int matricula,String nome){
+        this.nome = nome;
+        this.matricula = matricula;
+    }
 
-    private Deartamento departamento;
+    public abstract Usuario cadastro(Scanner in);
+
+    public abstract String getTipo();
+
+    public int getMatricula() {
+        return matricula;
+    }
+
+    public void setMatricula(int matricula) {
+        this.matricula = matricula;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
 }
