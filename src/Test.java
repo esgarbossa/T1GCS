@@ -39,8 +39,8 @@ public class Test {
         pedidos.add(pedido2);
 
         app.setPedidos(pedidos);
-
-        app.mostrarPedidos();
+        String desc = "a";
+        app.buscarPorItem(desc);
 
 
 

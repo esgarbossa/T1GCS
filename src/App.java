@@ -13,9 +13,11 @@ public class App {
 
     public void buscarPorItem(String descricao) {
         for(int i =0;i < pedidos.size();i++){
-            ItemPedido item = pedidos.get(i).getItem().get(i);
-            if(item.getNome().equals(descricao)){
-                item.resumoItem();
+            for (int j =0;j < pedidos.get(i).getItem().size();j++){
+                ItemPedido item = pedidos.get(i).getItem().get(j);
+                if(item.getNome().equalsIgnoreCase(descricao)){
+                    item.resumoItem();
+            }
             }
         }
     }
@@ -23,11 +25,29 @@ public class App {
     public void mostrarPedidos(){
         for(int i=0;i<pedidos.size();i++){
             System.out.println("Itens: ");
-            mostrarItem(pedidos.get(i));
+            mostrarItemAux(pedidos.get(i));
         }
     }
 
-    private void mostrarItem(Pedido pedido){
+    public void mostrarPedidosPorItem(String descricao){
+        for(int i=0;i<pedidos.size();i++){
+            ArrayList item = pedidos.get(i).getItem();
+            for(int j=0;j<item.size()-1;j++){
+                ItemPedido item1 = pedidos.get(i).getItem().get(j);
+                if (item1.getNome().equalsIgnoreCase(descricao)){
+                    mostrarItemSingle(item1);
+                }
+            }
+
+        }
+    }
+
+    private void mostrarItemSingle(ItemPedido item){
+        System.out.println("Nome: "+item.getNome());
+        System.out.println("Valor: "+item.getValor());
+    }
+
+    private void mostrarItemAux(Pedido pedido){
         ArrayList<ItemPedido> items = pedido.getItem();
         for(int i=0;i < items.size();i++){
             System.out.println("Descrição: " +  items.get(i).getNome());
