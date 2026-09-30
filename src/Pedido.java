@@ -1,28 +1,34 @@
 import java.util.Scanner;
 import java.util.ArrayList;
+import java.time.LocalDate;
+
 
 public class Pedido implements IntPedidos {
     private ArrayList<ItemPedido> item;
     private Usuario funcionario;
     private String descricao;
-    private String dataConclusao;
+    private LocalDate dataConclusao;
     private String status;
+    private LocalDate dataPedido;
 
 
 
-    public Pedido(ArrayList<ItemPedido> item,Usuario funcionario,String descricao,String dataConclusao,String status){
-        this.item=item;
-        this.funcionario=funcionario;
-        this.descricao=dataConclusao;
-        this.dataConclusao=dataConclusao;
-        this.status=status;
+
+    public Pedido(ArrayList<ItemPedido> item, Usuario funcionario, String descricao) {
+        this.item = item;
+        this.funcionario = funcionario;
+        this.descricao = descricao;
+        this.dataPedido = LocalDate.now();
+        this.dataConclusao = null;
+        this.status = "Aberto";
     }
-    public Pedido(){
-        this.item= new ArrayList<ItemPedido>();
-        this.funcionario=null;//TO DO
-        this.descricao=null;
-        this.dataConclusao="";
-        this.status="";
+    public Pedido() {
+        this.item = new ArrayList<ItemPedido>();
+        this.funcionario = null;
+        this.descricao = null;
+        this.dataPedido = null;
+        this.dataConclusao = null;
+        this.status = "";
     }
     public void changeStatus(){
 
@@ -44,6 +50,7 @@ public class Pedido implements IntPedidos {
 
         switch(opcao){
             case 1:
+                in.nextLine();
                 cadastroItem(in);
                 break;
             case 2:
@@ -52,20 +59,23 @@ public class Pedido implements IntPedidos {
 
     }
 
-    public void cadastroPedido(Scanner in){
+    public void cadastroPedido(Scanner in) {
         this.cadastroItem(in);
-        //TO DO cadastro funcionario
+        //todocadastroitem
 
-        System.out.println("Digite a data de conclusao: ");
-        String dataConclusao=in.nextLine();
-        this.setDataConclusao(dataConclusao);
+        this.dataPedido = LocalDate.now();
+
+        in.nextLine();
 
         System.out.println("Escreva uma breve descrição do pedido");
-        String descricao=in.nextLine();
+        String descricao = in.nextLine();
         this.setDescricao(descricao);
 
         this.setStatus("Aberto");
-
+    }
+    public void concluirPedido() {
+        this.dataConclusao = LocalDate.now();
+        this.status = "Concluido";
     }
 
     public String getDescricao() {
@@ -92,11 +102,11 @@ public class Pedido implements IntPedidos {
         this.funcionario = funcionario;
     }
 
-    public String getDataConclusao() {
+    public LocalDate getDataConclusao() {
         return dataConclusao;
     }
 
-    public void setDataConclusao(String dataConclusao) {
+    public void setDataConclusao(LocalDate dataConclusao) {
         this.dataConclusao = dataConclusao;
     }
 
@@ -107,4 +117,8 @@ public class Pedido implements IntPedidos {
     public void setStatus(String status) {
         this.status = status;
     }
+    public LocalDate getDataPedido() {return dataPedido;}
+
+    public void setDataPedido(LocalDate dataPedido) {this.dataPedido = dataPedido;}
 }
+
