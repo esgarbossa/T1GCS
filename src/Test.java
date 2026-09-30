@@ -8,13 +8,28 @@ public class Test {
 
         Scanner in = new Scanner(System.in);
 
-        Pedido pedido = new Pedido();
 
         ArrayList<ItemPedido> itemPedido = new ArrayList();
 
         ItemPedido item1= new ItemPedido("A", 100);
-        ItemPedido item2= new ItemPedido("A", 100);
-        ItemPedido item3= new ItemPedido("A", 100);
+        ItemPedido item2= new ItemPedido("B", 100);
+        ItemPedido item3= new ItemPedido("C", 100);
+
+        ArrayList<ItemPedido> itens1 = new ArrayList<>();
+
+        ArrayList<ItemPedido> itens2 = new ArrayList<>();
+
+        itens2.add(item1);
+
+        itens1.add(item3);
+
+        itens2.add(item2);
+
+        Pedido pedido1 = new Pedido();
+
+        ArrayList<Pedido> pedidos = new ArrayList<>();
+
+
 
 
         app.mostrarPedidos();
