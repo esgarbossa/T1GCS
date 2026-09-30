@@ -13,13 +13,20 @@ public class App {
 
     public void buscarPorItem(String descricao) {
         for(int i =0;i < pedidos.size();i++){
-            for (int j =0;j < pedidos.get(i).getItem().size();j++){
+            boolean encontrou = false;
+            for (int j =0;j < pedidos.get(i).getItem().size();j++) {
                 ItemPedido item = pedidos.get(i).getItem().get(j);
-                if(item.getNome().equalsIgnoreCase(descricao)){
-                    item.resumoItem();
+                if (item.getNome().equalsIgnoreCase(descricao)) {
+                    resumoPedido(pedidos.get(i));
+                    break;
+                }
             }
-            }
+
         }
+    }
+
+    public void resumoPedido(Pedido pedido) {
+        mostrarItemAux(pedido);
     }
 
     public void mostrarPedidos(){
@@ -27,24 +34,6 @@ public class App {
             System.out.println("Itens: ");
             mostrarItemAux(pedidos.get(i));
         }
-    }
-
-    public void mostrarPedidosPorItem(String descricao){
-        for(int i=0;i<pedidos.size();i++){
-            ArrayList item = pedidos.get(i).getItem();
-            for(int j=0;j<item.size()-1;j++){
-                ItemPedido item1 = pedidos.get(i).getItem().get(j);
-                if (item1.getNome().equalsIgnoreCase(descricao)){
-                    mostrarItemSingle(item1);
-                }
-            }
-
-        }
-    }
-
-    private void mostrarItemSingle(ItemPedido item){
-        System.out.println("Nome: "+item.getNome());
-        System.out.println("Valor: "+item.getValor());
     }
 
     private void mostrarItemAux(Pedido pedido){
