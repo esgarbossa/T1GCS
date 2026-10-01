@@ -66,7 +66,15 @@ public class App {
         Usuario limpeza3 = new Limpeza(4203, "Rafael Oliveira");
         Usuario limpeza4 = new Limpeza(4204, "Camila Rodrigues");
         Usuario limpeza5 = new Limpeza(4205, "Felipe Martins");
+
+        Usuario financeiro1 = new Financeiro(5301, "Fernanda Costa");
+        Usuario financeiro2 = new Financeiro(5302, "Gabriel Rocha");
+        Usuario financeiro3 = new Financeiro(5303, "Isabela Almeida");
+        Usuario financeiro4 = new Financeiro(5304, "Leonardo Mendes");
+        Usuario financeiro5 = new Financeiro(5305, "Mariana Nunes");
     }
+
+
 
     public void mostrarPedidos(){
         for(int i=0;i<pedidos.size();i++){
