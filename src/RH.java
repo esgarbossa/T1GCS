@@ -1,24 +1,23 @@
 import java.util.Scanner;
 
-public class Financeiro extends Usuario{
-    public Financeiro (int matricula,String nome){
+public class RH extends Usuario{
+    public RH (int matricula,String nome){
         super(matricula, nome);
     }
 
-    public Financeiro(){
+    public RH(){
         super();
     }
 
     @Override
-    public String getTipo(){
-        return "Financeiro";
+    public String getTipo() {
+        return "RH";
     }
-
     @Override
     public Usuario cadastro(Scanner in){
-        Usuario cont = new Financeiro();
+        Usuario cont = new RH();
 
-        System.out.println("Qual o nome do contador?: ");
+        System.out.println("Qual o nome do funcionario de RH?: ");
         String nome = in.nextLine();
         super.setNome(nome);
 
@@ -33,3 +32,4 @@ public class Financeiro extends Usuario{
     }
 
 }
+

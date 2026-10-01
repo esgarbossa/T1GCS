@@ -23,11 +23,11 @@ public class Engenheiro extends Usuario{
 
         System.out.println("Qual o nome do engenheiro?: ");
         String nome = in.nextLine();
-        eng.setNome(nome);
+        super.setNome(nome);
 
         System.out.println("Qual a matricula do engenheiro?: ");
         int matricula = in.nextInt();
-        eng.setMatricula(matricula);
+        super.setMatricula(matricula);
         return eng;
     }
 

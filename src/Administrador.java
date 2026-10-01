@@ -17,11 +17,11 @@ public class Administrador extends Usuario {
         Usuario adm = new Administrador();
         System.out.println("Qual o nome do administrador?: ");
         String nome = in.nextLine();
-        adm.setNome(nome);
+        super.setNome(nome);
 
         System.out.println("Qual a matricula do administrador?: ");
         int matricula = in.nextInt();
-        adm.setMatricula(matricula);
+        super.setMatricula(matricula);
 
         System.out.println("Qual a senha do administrador?: ");
         String senha = in.nextLine();
