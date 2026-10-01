@@ -42,6 +42,7 @@ public class App {
 
     public void resumoPedido(Pedido pedido) {
         System.out.println("ID: " + pedido.getId());
+        System.out.println(pedido.getDescricao());
         mostrarItemAux(pedido);
         System.out.println(pedido.getDataPedido());
         System.out.println("Status: " + pedido.getStatus());
