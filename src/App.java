@@ -55,6 +55,11 @@ public class App {
         Usuario adm4 = new Administrador(4162, "Tiago Audino", "snsba67" );
         Usuario adm5 = new Administrador(2162, "Enzo Sgarbossa", "mamamma90" );
 
+        Usuario rh1 = new RH(3101, "Ana Souza");
+        Usuario rh2 = new RH(3102, "Bruno Lima");
+        Usuario rh3 = new RH(3103, "Carolina Martins");
+        Usuario rh4 = new RH(3104, "Diego Alves");
+        Usuario rh5 = new RH(3105, "Eduarda Freitas");
 
 
     }
