@@ -72,7 +72,17 @@ public class App {
         Usuario financeiro3 = new Financeiro(5303, "Isabela Almeida");
         Usuario financeiro4 = new Financeiro(5304, "Leonardo Mendes");
         Usuario financeiro5 = new Financeiro(5305, "Mariana Nunes");
+
+        Usuario engenheiro1 = new Engenheiro(6401, "João Pereira");
+        Usuario engenheiro2 = new Engenheiro(6402, "Matheus Ribeiro");
+        Usuario engenheiro3 = new Engenheiro(6403, "Beatriz Ferreira");
+        Usuario engenheiro4 = new Engenheiro(6404, "Gustavo Carvalho");
+        Usuario engenheiro5 = new Engenheiro(6405, "Laura Moreira");
+
+
+
     }
+
 
 
 
