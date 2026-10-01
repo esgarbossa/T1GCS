@@ -61,7 +61,11 @@ public class App {
         Usuario rh4 = new RH(3104, "Diego Alves");
         Usuario rh5 = new RH(3105, "Eduarda Freitas");
 
-
+        Usuario limpeza1 = new Limpeza(4201, "Marcos Silva");
+        Usuario limpeza2 = new Limpeza(4202, "Juliana Santos");
+        Usuario limpeza3 = new Limpeza(4203, "Rafael Oliveira");
+        Usuario limpeza4 = new Limpeza(4204, "Camila Rodrigues");
+        Usuario limpeza5 = new Limpeza(4205, "Felipe Martins");
     }
 
     public void mostrarPedidos(){
