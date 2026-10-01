@@ -1,3 +1,4 @@
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class App {
@@ -22,6 +23,20 @@ public class App {
                 }
             }
 
+        }
+    }
+
+    public void buscarPorData(LocalDate data){
+        boolean encontrou = false;
+        for (int i = 0; i < pedidos.size() -1;i++){
+            LocalDate dataPedido = pedidos.get(i).getDataPedido();
+            if (dataPedido != null && dataPedido.isEqual(data)){
+                resumoPedido(pedidos.get(i));
+                encontrou = true;
+            }
+        }
+        if (!encontrou){
+            System.out.println("Nenhum pedido na data selecionada!");
         }
     }
 
