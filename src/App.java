@@ -48,6 +48,17 @@ public class App {
         System.out.println("Status: " + pedido.getStatus());
     }
 
+    public void adicionarFuncionarios(){
+        Usuario adm1 = new Administrador(2712, "Pedro Cristal", "asd123" );
+        Usuario adm2 = new Administrador(9374, "Lucas Gargioni", "aka98" );
+        Usuario adm3 = new Administrador(7273, "Lucas Neves", "kaka87" );
+        Usuario adm4 = new Administrador(4162, "Tiago Audino", "snsba67" );
+        Usuario adm5 = new Administrador(2162, "Enzo Sgarbossa", "mamamma90" );
+
+
+
+    }
+
     public void mostrarPedidos(){
         for(int i=0;i<pedidos.size();i++){
             System.out.println("Itens: ");
