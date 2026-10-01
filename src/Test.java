@@ -32,6 +32,7 @@ public class Test {
 
         Pedido pedido2 = new Pedido();
 
+
         pedido1.setItem(itens1);
 
         pedido2.setItem(itens2);
