@@ -48,6 +48,80 @@ public class App {
         System.out.println("Status: " + pedido.getStatus());
     }
 
+    public void adicionarFuncionarios(){
+        Usuario adm1 = new Administrador(2712, "Pedro Cristal", "asd123" );
+        Usuario adm2 = new Administrador(9374, "Lucas Gargioni", "aka98" );
+        Usuario adm3 = new Administrador(7273, "Lucas Neves", "kaka87" );
+        Usuario adm4 = new Administrador(4162, "Tiago Audino", "snsba67" );
+        Usuario adm5 = new Administrador(2162, "Enzo Sgarbossa", "mamamma90" );
+
+        Usuario rh1 = new RH(3101, "Ana Souza");
+        Usuario rh2 = new RH(3102, "Bruno Lima");
+        Usuario rh3 = new RH(3103, "Carolina Martins");
+        Usuario rh4 = new RH(3104, "Diego Alves");
+        Usuario rh5 = new RH(3105, "Eduarda Freitas");
+
+        Usuario limpeza1 = new Limpeza(4201, "Marcos Silva");
+        Usuario limpeza2 = new Limpeza(4202, "Juliana Santos");
+        Usuario limpeza3 = new Limpeza(4203, "Rafael Oliveira");
+        Usuario limpeza4 = new Limpeza(4204, "Camila Rodrigues");
+        Usuario limpeza5 = new Limpeza(4205, "Felipe Martins");
+
+        Usuario financeiro1 = new Financeiro(5301, "Fernanda Costa");
+        Usuario financeiro2 = new Financeiro(5302, "Gabriel Rocha");
+        Usuario financeiro3 = new Financeiro(5303, "Isabela Almeida");
+        Usuario financeiro4 = new Financeiro(5304, "Leonardo Mendes");
+        Usuario financeiro5 = new Financeiro(5305, "Mariana Nunes");
+
+        Usuario engenheiro1 = new Engenheiro(6401, "João Pereira");
+        Usuario engenheiro2 = new Engenheiro(6402, "Matheus Ribeiro");
+        Usuario engenheiro3 = new Engenheiro(6403, "Beatriz Ferreira");
+        Usuario engenheiro4 = new Engenheiro(6404, "Gustavo Carvalho");
+        Usuario engenheiro5 = new Engenheiro(6405, "Laura Moreira");
+
+        Usuario manutencao1 = new Manutencao(7501, "Carlos Mendes");
+        Usuario manutencao2 = new Manutencao(7502, "Eduardo Nunes");
+        Usuario manutencao3 = new Manutencao(7503, "Larissa Gomes");
+        Usuario manutencao4 = new Manutencao(7504, "Henrique Lopes");
+        Usuario manutencao5 = new Manutencao(7505, "Patricia Almeida");
+
+        usuarios.add(adm1);
+        usuarios.add(adm2);
+        usuarios.add(adm3);
+        usuarios.add(adm4);
+        usuarios.add(adm5);
+
+        usuarios.add(rh1);
+        usuarios.add(rh2);
+        usuarios.add(rh3);
+        usuarios.add(rh4);
+        usuarios.add(rh5);
+
+        usuarios.add(limpeza1);
+        usuarios.add(limpeza2);
+        usuarios.add(limpeza3);
+        usuarios.add(limpeza4);
+        usuarios.add(limpeza5);
+
+        usuarios.add(financeiro1);
+        usuarios.add(financeiro2);
+        usuarios.add(financeiro3);
+        usuarios.add(financeiro4);
+        usuarios.add(financeiro5);
+
+        usuarios.add(engenheiro1);
+        usuarios.add(engenheiro2);
+        usuarios.add(engenheiro3);
+        usuarios.add(engenheiro4);
+        usuarios.add(engenheiro5);
+
+        usuarios.add(manutencao1);
+        usuarios.add(manutencao2);
+        usuarios.add(manutencao3);
+        usuarios.add(manutencao4);
+        usuarios.add(manutencao5);
+    }
+
     public void mostrarPedidos(){
         for(int i=0;i<pedidos.size();i++){
             System.out.println("Itens: ");
