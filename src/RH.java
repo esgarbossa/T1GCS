@@ -21,7 +21,7 @@ public class RH extends Usuario{
         String nome = in.nextLine();
         super.setNome(nome);
 
-        System.out.println("Qual a matricula do contador?: ");
+        System.out.println("Qual a matricula do funcionario de RH?: ");
         int matricula = in.nextInt();
         super.setMatricula(matricula);
         return cont;
