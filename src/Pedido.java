@@ -4,6 +4,7 @@ import java.time.LocalDate;
 
 
 public class Pedido implements IntPedidos {
+    private String  id;
     private ArrayList<ItemPedido> item;
     private Usuario funcionario;
     private String descricao;
@@ -14,7 +15,8 @@ public class Pedido implements IntPedidos {
 
 
 
-    public Pedido(ArrayList<ItemPedido> item, Usuario funcionario, String descricao) {
+    public Pedido(String id,ArrayList<ItemPedido> item, Usuario funcionario, String descricao) {
+        this.id = id;
         this.item = item;
         this.funcionario = funcionario;
         this.descricao = descricao;
@@ -23,6 +25,7 @@ public class Pedido implements IntPedidos {
         this.status = "Aberto";
     }
     public Pedido() {
+        this.id = null;
         this.item = new ArrayList<ItemPedido>();
         this.funcionario = null;
         this.descricao = null;
@@ -60,6 +63,10 @@ public class Pedido implements IntPedidos {
     }
 
     public void cadastroPedido(Scanner in) {
+        System.out.println("Digite o id do pedido");
+        String id = in.nextLine();
+        this.id = id;
+
         this.cadastroItem(in);
         //todocadastroitem
 
@@ -76,6 +83,14 @@ public class Pedido implements IntPedidos {
     public void concluirPedido() {
         this.dataConclusao = LocalDate.now();
         this.status = "Concluido";
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getDescricao() {
