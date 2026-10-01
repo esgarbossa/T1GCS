@@ -1,4 +1,7 @@
 import java.util.ArrayList;
+
+import java.time.LocalDate;
+
 import java.util.Scanner;
 
 public class Test {
@@ -33,14 +36,19 @@ public class Test {
 
         pedido2.setItem(itens2);
 
+        pedido1.setDataPedido(LocalDate.of(2026, 9, 10));
+        pedido2.setDataPedido(LocalDate.now());
+
+
+
         ArrayList<Pedido> pedidos = new ArrayList<>();
 
         pedidos.add(pedido1);
         pedidos.add(pedido2);
 
         app.setPedidos(pedidos);
-        String desc = "a";
-        app.buscarPorItem(desc);
+
+        app.buscarPorData(LocalDate.of(2026,10,1));
 
 
 

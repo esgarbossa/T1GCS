@@ -1,3 +1,4 @@
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class App {
@@ -25,8 +26,24 @@ public class App {
         }
     }
 
+    public void buscarPorData(LocalDate data){
+        boolean encontrou = false;
+        for (int i = 0; i < pedidos.size();i++){
+            LocalDate dataPedido = pedidos.get(i).getDataPedido();
+            if (dataPedido != null && dataPedido.isEqual(data)){
+                resumoPedido(pedidos.get(i));
+                encontrou = true;
+            }
+        }
+        if (!encontrou){
+            System.out.println("Nenhum pedido na data selecionada!");
+        }
+    }
+
     public void resumoPedido(Pedido pedido) {
         mostrarItemAux(pedido);
+        System.out.println(pedido.getDataPedido());
+        System.out.println("Status: " + pedido.getStatus());
     }
 
     public void mostrarPedidos(){
@@ -41,6 +58,7 @@ public class App {
         for(int i=0;i < items.size();i++){
             System.out.println("Descrição: " +  items.get(i).getNome());
             System.out.println("Valor: " +  items.get(i).getValor());
+            System.out.println("=========================================");
         }
     }
 
