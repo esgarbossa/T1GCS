@@ -1,34 +1,31 @@
 import java.util.Scanner;
 
-import java.util.Scanner;
-
-public class Engenheiro extends Usuario{
-
-    public Engenheiro (int matricula,String nome){
+public class Financeiro extends Usuario{
+    public Financeiro (int matricula,String nome){
         super(matricula, nome);
     }
 
-    public Engenheiro(){
+    public Financeiro(){
         super();
     }
 
     @Override
     public String getTipo(){
-        return "Engenharia";
+        return "Financeiro";
     }
 
     @Override
     public Usuario cadastro(Scanner in){
-        Usuario eng = new Engenheiro();
+        Usuario cont = new Financeiro();
 
-        System.out.println("Qual o nome do engenheiro?: ");
+        System.out.println("Qual o nome do contador?: ");
         String nome = in.nextLine();
         super.setNome(nome);
 
-        System.out.println("Qual a matricula do engenheiro?: ");
+        System.out.println("Qual a matricula do contador?: ");
         int matricula = in.nextInt();
         super.setMatricula(matricula);
-        return eng;
+        return cont;
     }
 
     public double getLimite(){
@@ -36,4 +33,3 @@ public class Engenheiro extends Usuario{
     }
 
 }
-

@@ -16,9 +16,15 @@ public class Manutencao extends Usuario {
 
     @Override
     public Usuario cadastro(Scanner in){
-        Usuario adm = new Administrador();
-        //TO DO (Retornar um novo adm cadastrado)
-        return adm;
+        Usuario man = new Manutencao();
+        System.out.println("Qual o nome do funcionario da manutenção?: ");
+        String nome = in.nextLine();
+        super.setNome(nome);
+
+        System.out.println("Qual a matricula do funcionario da manutenção?: ");
+        int matricula = in.nextInt();
+        super.setMatricula(matricula);
+        return man;
     }
 
 }

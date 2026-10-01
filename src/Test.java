@@ -7,6 +7,17 @@ import java.util.Scanner;
 public class Test {
     public static void main(String[] args) {
 
+        Scanner in = new Scanner(System.in);
+
+        Usuario user = new Engenheiro();
+
+        user.cadastro(in);
+
+        System.out.println(user.toString());
+
+
+
+/*
         App app = new App();
 
         Scanner in = new Scanner(System.in);
@@ -43,7 +54,7 @@ public class Test {
         app.setPedidos(pedidos);
 
         app.buscarPorData(LocalDate.of(2026,10,1));
-
+*/
 
 
 
