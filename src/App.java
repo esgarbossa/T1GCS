@@ -85,10 +85,42 @@ public class App {
         Usuario manutencao4 = new Manutencao(7504, "Henrique Lopes");
         Usuario manutencao5 = new Manutencao(7505, "Patricia Almeida");
 
+        usuarios.add(adm1);
+        usuarios.add(adm2);
+        usuarios.add(adm3);
+        usuarios.add(adm4);
+        usuarios.add(adm5);
+
+        usuarios.add(rh1);
+        usuarios.add(rh2);
+        usuarios.add(rh3);
+        usuarios.add(rh4);
+        usuarios.add(rh5);
+
+        usuarios.add(limpeza1);
+        usuarios.add(limpeza2);
+        usuarios.add(limpeza3);
+        usuarios.add(limpeza4);
+        usuarios.add(limpeza5);
+
+        usuarios.add(financeiro1);
+        usuarios.add(financeiro2);
+        usuarios.add(financeiro3);
+        usuarios.add(financeiro4);
+        usuarios.add(financeiro5);
+
+        usuarios.add(engenheiro1);
+        usuarios.add(engenheiro2);
+        usuarios.add(engenheiro3);
+        usuarios.add(engenheiro4);
+        usuarios.add(engenheiro5);
+
+        usuarios.add(manutencao1);
+        usuarios.add(manutencao2);
+        usuarios.add(manutencao3);
+        usuarios.add(manutencao4);
+        usuarios.add(manutencao5);
     }
-
-
-
 
     public void mostrarPedidos(){
         for(int i=0;i<pedidos.size();i++){
