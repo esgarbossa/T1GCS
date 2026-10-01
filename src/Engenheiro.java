@@ -14,7 +14,7 @@ public class Engenheiro extends Usuario{
 
     @Override
     public String getTipo(){
-        return "Manutenção";
+        return "Engenheiro";
     }
 
     @Override
