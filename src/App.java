@@ -42,6 +42,8 @@ public class App {
 
     public void resumoPedido(Pedido pedido) {
         mostrarItemAux(pedido);
+        System.out.println(pedido.getDataPedido());
+        System.out.println("Status: " + pedido.getStatus());
     }
 
     public void mostrarPedidos(){
@@ -56,6 +58,7 @@ public class App {
         for(int i=0;i < items.size();i++){
             System.out.println("Descrição: " +  items.get(i).getNome());
             System.out.println("Valor: " +  items.get(i).getValor());
+            System.out.println("=========================================");
         }
     }
 
