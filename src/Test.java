@@ -32,9 +32,10 @@ public class Test {
 
         Pedido pedido2 = new Pedido();
 
-
+        pedido1.setId(001);
         pedido1.setItem(itens1);
 
+        pedido2.setId(002);
         pedido2.setItem(itens2);
 
         pedido1.setDataPedido(LocalDate.of(2026, 9, 10));
