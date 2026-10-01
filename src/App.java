@@ -79,7 +79,11 @@ public class App {
         Usuario engenheiro4 = new Engenheiro(6404, "Gustavo Carvalho");
         Usuario engenheiro5 = new Engenheiro(6405, "Laura Moreira");
 
-
+        Usuario manutencao1 = new Manutencao(7501, "Carlos Mendes");
+        Usuario manutencao2 = new Manutencao(7502, "Eduardo Nunes");
+        Usuario manutencao3 = new Manutencao(7503, "Larissa Gomes");
+        Usuario manutencao4 = new Manutencao(7504, "Henrique Lopes");
+        Usuario manutencao5 = new Manutencao(7505, "Patricia Almeida");
 
     }
 
