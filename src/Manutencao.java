@@ -19,11 +19,11 @@ public class Manutencao extends Usuario {
         Usuario man = new Manutencao();
         System.out.println("Qual o nome do funcionario da manutenção?: ");
         String nome = in.nextLine();
-        man.setNome(nome);
+        super.setNome(nome);
 
         System.out.println("Qual a matricula do funcionario da manutenção?: ");
         int matricula = in.nextInt();
-        man.setMatricula(matricula);
+        super.setMatricula(matricula);
         return man;
     }
 
