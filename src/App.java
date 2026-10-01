@@ -28,7 +28,7 @@ public class App {
 
     public void buscarPorData(LocalDate data){
         boolean encontrou = false;
-        for (int i = 0; i < pedidos.size() -1;i++){
+        for (int i = 0; i < pedidos.size();i++){
             LocalDate dataPedido = pedidos.get(i).getDataPedido();
             if (dataPedido != null && dataPedido.isEqual(data)){
                 resumoPedido(pedidos.get(i));
