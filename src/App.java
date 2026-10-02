@@ -232,19 +232,31 @@ public class App {
         }
     }
 
-    public void avaliarPedidos(Administrador administrador, Pedido pedido, Scanner sc){
+    public void avaliarPedidos(Administrador administrador, Pedido pedido, Scanner in){
         if(pedido.isAvaliado() == true){
             System.out.println("Pedido ja avaliado");
             return;
         }
         if(administrador.getTipo().equalsIgnoreCase("Administração")){
             System.out.println("Digite a senha");
-            String senha = sc.nextLine();
+            String senha = in.nextLine();
             if(senha.equalsIgnoreCase(administrador.getSenha())){
                 resumoPedido(pedido);
                 System.out.println("[1] Aprovar pedido");
                 System.out.println("[2] Reprovar pedido");
-                int op = Integer.parseInt(sc.nextLine());
+                int op;
+
+                while (true){
+                    try {
+                        op = Integer.parseInt(in.nextLine().trim());
+                        if (op == 1 || op == 2){
+                            break;
+                        }
+                        System.out.println("Opção inválida. Digite 1 ou 2:");
+                    } catch (NumberFormatException erro) {
+                        System.out.println("Entrada inválida. Digite 1 ou 2:");
+                    }
+                }
                 switch (op){
                     case 1:
                         pedido.setStatus("Aprovado");
