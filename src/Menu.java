@@ -26,6 +26,8 @@ public class Menu {
             case 7:
             case 8:
             case 9:
+            case 10:
+
                 return true;
             default:
                 return false;
@@ -103,9 +105,10 @@ public class Menu {
             System.out.println("[7] - Estatísticas totais" + StatusOpcaoAdministrador(7));
             System.out.println("[8] - Estatísticas dos últimos 30 dias" + StatusOpcaoAdministrador(8));
             System.out.println("[9] - Maior pedido aberto" + StatusOpcaoAdministrador(9));
+            System.out.println("[10] - Concluir pedido" + StatusOpcaoAdministrador(10));
             System.out.println("[0] - Voltar");
             int opcao = LerInteiro(in);
-            if (opcao >= 1 && opcao <= 9 && !OpcaoAdministradorDisponivel(opcao)){
+            if (opcao >= 1 && opcao <= 10 && !OpcaoAdministradorDisponivel(opcao)){
                 System.out.println("Essa opção ainda está indisponível.");
                 continue;
             }
@@ -234,6 +237,25 @@ public class Menu {
                 case 9:
                     EstatisticasMaiorPedidoAberto maiorPedidoAberto = new EstatisticasMaiorPedidoAberto();maiorPedidoAberto.mostrar(adm, app.getPedidos());
                     break;
+                case 10:
+                    if (app.getPedidos().isEmpty()){
+                        System.out.println("Nenhum pedido disponível para avaliação.");
+                        break;
+                    }
+                    for (int i = 0; i < app.getPedidos().size(); i++){
+                        System.out.println();
+                        System.out.println("[" + (i + 1) + "] - Pedido");
+                        app.resumoPedido(app.getPedidos().get(i));
+                    }
+                    System.out.println("Escolha o número do pedido:");
+                    int nmrPedido= LerInteiro(in);
+                    if (nmrPedido < 1 || nmrPedido > app.getPedidos().size()){
+                        System.out.println("Pedido inválido!");
+                    } else {
+                        Pedido pedido = app.getPedidos().get(nmrPedido - 1);
+                        app.concluirPedido(in,adm,pedido);
+                    }
+
                 case 0:
                     System.out.println("Voltando para a tela inicial...");
                     menuAberto = false;
