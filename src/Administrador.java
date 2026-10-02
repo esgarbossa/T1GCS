@@ -33,9 +33,12 @@ public class Administrador extends Usuario {
         return senha;
     }
 
+    public boolean validarSenha(String senha){
+        return this.senha != null && this.senha.equals(senha);
+    }
     @Override
     public String getTipo() {
-        return "Administração";
+        return "Administrador";
     }
 
     public double getLimite(){
