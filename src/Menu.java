@@ -85,7 +85,7 @@ public class Menu {
             }
         }
     }
-    /*
+
     public void MenuAdministrador(Scanner in, Administrador adm){
         boolean menuAberto = true;
 
@@ -245,7 +245,6 @@ public class Menu {
         }
     }
 
-     */
     public void MenuFuncionario(Scanner in, Usuario funcionario){
         boolean menuAberto = true;
         while (menuAberto){
