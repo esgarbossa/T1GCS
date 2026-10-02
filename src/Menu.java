@@ -103,7 +103,6 @@ public class Menu {
             System.out.println("[8] - Estatísticas dos últimos 30 dias" + StatusOpcaoAdministrador(8));
             System.out.println("[9] - Maior pedido aberto" + StatusOpcaoAdministrador(9));
             System.out.println("[0] - Voltar");
-            System.out.println("[0] - Voltar");
             int opcao = LerInteiro(in);
             if (opcao >= 1 && opcao <= 9 && !OpcaoAdministradorDisponivel(opcao)){
                 System.out.println("Essa opção ainda está indisponível.");
