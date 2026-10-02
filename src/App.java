@@ -69,6 +69,8 @@ public class App {
         System.out.println(pedido.getDescricao());
         mostrarItemAux(pedido);
         System.out.println("Valor Total: R$" + pedido.getValorT());
+        System.out.println("Funcionario Solicitante: ");
+        System.out.println(pedido.getFuncionario().toString());
         System.out.println(pedido.getDataPedido());
         System.out.println("Status: " + pedido.getStatus());
     }

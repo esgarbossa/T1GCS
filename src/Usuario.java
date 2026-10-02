@@ -14,8 +14,9 @@ public abstract class Usuario {
         this.matricula = matricula;
     }
 
+
     public String toString(){
-        return "Nome: " + this.nome + "Matricula: " + this.matricula + "Departamento: " + this.getTipo();
+        return "Nome: " + this.nome + "\nMatricula: " + this.matricula + "\nDepartamento: " + this.getTipo();
     }
 
     public abstract Usuario cadastro(Scanner in);
