@@ -5,6 +5,16 @@ public class Menu {
     public Menu() {
         this.app = new App();
     }
+    public int LerInteiro(Scanner in){
+        while (true){
+            String entrada = in.nextLine();
+            try {
+                return Integer.parseInt(entrada.trim());
+            } catch (NumberFormatException erro) {
+                System.out.println("Entrada inválida. Digite apenas números:");
+            }
+        }
+    }
     public boolean OpcaoAdministradorDisponivel(int opcao){
         switch (opcao){
             case 1:
