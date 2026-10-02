@@ -163,6 +163,41 @@ public class App {
         usuarios.add(manutencao4);
         usuarios.add(manutencao5);
     }
+    public void instanciarPedidos() {
+        ArrayList<ItemPedido> itens1 = new ArrayList<>();
+
+        ItemPedido item1 = new ItemPedido("Teclado", 150.0);
+        ItemPedido item2 = new ItemPedido("Mouse", 80.0);
+
+        itens1.add(item1);
+        itens1.add(item2);
+
+        Usuario funcionario1 = usuarios.get(0);
+
+        Pedido pedido1 = new Pedido("P001", itens1, funcionario1, "Compra de periféricos");
+
+        pedido1.setValorT(pedido1.calculaValor());
+
+
+        ArrayList<ItemPedido> itens2 = new ArrayList<>();
+
+        ItemPedido item3 = new ItemPedido("Monitor", 900.0);
+        ItemPedido item4 = new ItemPedido("Cabo HDMI", 50.0);
+
+        itens2.add(item3);
+        itens2.add(item4);
+
+        Usuario funcionario2 = usuarios.get(1);
+
+        Pedido pedido2 = new Pedido("P002", itens2,funcionario2, "Equipamentos para escritório");
+
+        pedido2.setValorT(pedido2.calculaValor());
+
+        pedidos.add(pedido1);
+        pedidos.add(pedido2);
+
+
+    }
 
     public void mostrarPedidos(){
         for(int i=0;i<pedidos.size();i++){
