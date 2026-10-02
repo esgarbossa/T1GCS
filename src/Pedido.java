@@ -6,6 +6,7 @@ import java.time.LocalDate;
 public class Pedido implements IntPedidos {
     private String  id;
     private ArrayList<ItemPedido> item;
+    private double valorT;
     private Usuario funcionario;
     private String descricao;
     private LocalDate dataConclusao;
@@ -19,6 +20,7 @@ public class Pedido implements IntPedidos {
     public Pedido(String id,ArrayList<ItemPedido> item, Usuario funcionario, String descricao) {
         this.id = id;
         this.item = item;
+        this.valorT = 0;
         this.funcionario = funcionario;
         this.descricao = descricao;
         this.dataPedido = LocalDate.now();
@@ -28,6 +30,7 @@ public class Pedido implements IntPedidos {
     public Pedido() {
         this.id = null;
         this.item = new ArrayList<ItemPedido>();
+        this.valorT =0;
         this.funcionario = null;
         this.descricao = null;
         this.dataPedido = null;
@@ -63,13 +66,28 @@ public class Pedido implements IntPedidos {
 
     }
 
+    public double calculaValor(){
+        double valor = 0;
+        for (int i = 0; i < item.size();i++){
+            valor += item.get(i).getValor();
+        }
+        return valor;
+    }
+
     public void cadastroPedido(Scanner in) {
         System.out.println("Digite o id do pedido");
         String id = in.nextLine();
         this.id = id;
 
         this.cadastroItem(in);
-        //todocadastroitem
+
+        valorT = calculaValor();
+
+        if (valorT > funcionario.getLimite()){
+            item = null;
+            return;
+        }
+
 
         this.dataPedido = LocalDate.now();
 
@@ -147,6 +165,14 @@ public class Pedido implements IntPedidos {
 
     public void setAvaliado(boolean avaliado) {
         this.avaliado = avaliado;
+    }
+
+    public double getValorT() {
+        return valorT;
+    }
+
+    public void setValorT(double valorT) {
+        this.valorT = valorT;
     }
 }
 

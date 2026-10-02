@@ -37,4 +37,8 @@ public class Administrador extends Usuario {
     public String getTipo() {
         return "Administrador";
     }
+
+    public double getLimite(){
+        return 200000;
+    }
 }
