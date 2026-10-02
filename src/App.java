@@ -28,6 +28,15 @@ public class App {
         }
     }
 
+    public Usuario usuarioAtual(int matricula){
+        for (int i =0; i < usuarios.size();i++){
+            if (matricula == usuarios.get(i).getMatricula()) {
+                return usuarios.get(i);
+            }
+        }
+        return null;
+    }
+
     public Administrador administradorAtual(int matricula){
         for (int i =0; i < admins.size();i++){
             if (matricula == admins.get(i).getMatricula()) {
@@ -35,6 +44,19 @@ public class App {
             }
         }
         return null;
+    }
+
+    public void buscaPorFuncionario(int matricula){
+        boolean encontrou = false;
+        for (int i = 0;i < pedidos.size(); i++){
+            if (pedidos.get(i).getFuncionario().getMatricula() == matricula){
+                resumoPedido(pedidos.get(i));
+                encontrou = true;
+            }
+        }
+        if (!encontrou){
+            System.out.println("O funcionário não lançou nenhum pedido");
+        }
     }
 
     public void buscarPorData(LocalDate data){
@@ -56,6 +78,8 @@ public class App {
         System.out.println(pedido.getDescricao());
         mostrarItemAux(pedido);
         System.out.println("Valor Total: R$" + pedido.getValorT());
+        System.out.println("Funcionario Solicitante: ");
+        System.out.println(pedido.getFuncionario().toString());
         System.out.println(pedido.getDataPedido());
         System.out.println("Status: " + pedido.getStatus());
     }
