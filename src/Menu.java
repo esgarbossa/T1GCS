@@ -26,6 +26,8 @@ public class Menu {
             case 7:
             case 8:
             case 9:
+            case 10:
+
                 return true;
             default:
                 return false;
@@ -85,6 +87,7 @@ public class Menu {
             }
         }
     }
+
     public void MenuAdministrador(Scanner in, Administrador adm){
         boolean menuAberto = true;
 
@@ -102,9 +105,10 @@ public class Menu {
             System.out.println("[7] - Estatísticas totais" + StatusOpcaoAdministrador(7));
             System.out.println("[8] - Estatísticas dos últimos 30 dias" + StatusOpcaoAdministrador(8));
             System.out.println("[9] - Maior pedido aberto" + StatusOpcaoAdministrador(9));
+            System.out.println("[10] - Concluir pedido" + StatusOpcaoAdministrador(10));
             System.out.println("[0] - Voltar");
             int opcao = LerInteiro(in);
-            if (opcao >= 1 && opcao <= 9 && !OpcaoAdministradorDisponivel(opcao)){
+            if (opcao >= 1 && opcao <= 10 && !OpcaoAdministradorDisponivel(opcao)){
                 System.out.println("Essa opção ainda está indisponível.");
                 continue;
             }
@@ -162,8 +166,10 @@ public class Menu {
                     System.out.println("[3] - Financeiro");
                     System.out.println("[4] - Engenharia");
                     System.out.println("[5] - Manutenção");
+                    System.out.println("[6] - Administrador");
                     int tipoFuncionario = LerInteiro(in);
                     Usuario novoFuncionario = null;
+                    Administrador novoAdministrador = null;
                     switch (tipoFuncionario){
                         case 1:
                             novoFuncionario = new RH();
@@ -179,6 +185,9 @@ public class Menu {
                             break;
                         case 5:
                             novoFuncionario = new Manutencao();
+                            break;
+                        case 6:
+                            novoAdministrador = new Administrador();
                             break;
                         default:
                             System.out.println("Departamento inválido!");
@@ -199,6 +208,22 @@ public class Menu {
                             app.getUsuarios().add(novoFuncionario);
                             System.out.println("Funcionário cadastrado com sucesso!");
                         }
+                    } else if (novoAdministrador != null){
+                        try {
+                            novoAdministrador.cadastro(in);
+                            in.nextLine();
+                        } catch (Exception erro) {
+                            System.out.println("Matrícula inválida. O funcionário não foi cadastrado.");
+                            in.nextLine();
+                            break;
+                        }
+                        if (app.usuarioAtual(novoFuncionario.getMatricula()) != null){
+                            System.out.println("Já existe um funcionário com essa matrícula!");
+                        } else {
+                            app.getUsuarios().add(novoAdministrador);
+                            app.getAdmins().add(novoAdministrador);
+                            System.out.println("Administrador cadastrado com sucesso!");
+                        }
                     }
                     break;
                 case 7:
@@ -212,6 +237,25 @@ public class Menu {
                 case 9:
                     EstatisticasMaiorPedidoAberto maiorPedidoAberto = new EstatisticasMaiorPedidoAberto();maiorPedidoAberto.mostrar(adm, app.getPedidos());
                     break;
+                case 10:
+                    if (app.getPedidos().isEmpty()){
+                        System.out.println("Nenhum pedido disponível para avaliação.");
+                        break;
+                    }
+                    for (int i = 0; i < app.getPedidos().size(); i++){
+                        System.out.println();
+                        System.out.println("[" + (i + 1) + "] - Pedido");
+                        app.resumoPedido(app.getPedidos().get(i));
+                    }
+                    System.out.println("Escolha o número do pedido:");
+                    int nmrPedido= LerInteiro(in);
+                    if (nmrPedido < 1 || nmrPedido > app.getPedidos().size()){
+                        System.out.println("Pedido inválido!");
+                    } else {
+                        Pedido pedido = app.getPedidos().get(nmrPedido - 1);
+                        app.concluirPedido(in,adm,pedido);
+                    }
+
                 case 0:
                     System.out.println("Voltando para a tela inicial...");
                     menuAberto = false;
@@ -222,6 +266,7 @@ public class Menu {
             }
         }
     }
+
     public void MenuFuncionario(Scanner in, Usuario funcionario){
         boolean menuAberto = true;
         while (menuAberto){
