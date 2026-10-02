@@ -165,38 +165,55 @@ public class App {
     }
     public void instanciarPedidos() {
         ArrayList<ItemPedido> itens1 = new ArrayList<>();
-
-        ItemPedido item1 = new ItemPedido("Teclado", 150.0);
-        ItemPedido item2 = new ItemPedido("Mouse", 80.0);
-
+        ItemPedido item1 = new ItemPedido("Cadeira", 500.0);
+        ItemPedido item2 = new ItemPedido("Mesa", 700.0);
         itens1.add(item1);
         itens1.add(item2);
-
-        Usuario funcionario1 = usuarios.get(0);
-
-        Pedido pedido1 = new Pedido("P001", itens1, funcionario1, "Compra de periféricos");
-
+        Usuario funcionario1 = usuarios.get(5);
+        Pedido pedido1 = new Pedido("P001", itens1, funcionario1, "Materiais para o RH");
         pedido1.setValorT(pedido1.calculaValor());
 
-
         ArrayList<ItemPedido> itens2 = new ArrayList<>();
-
-        ItemPedido item3 = new ItemPedido("Monitor", 900.0);
-        ItemPedido item4 = new ItemPedido("Cabo HDMI", 50.0);
-
+        ItemPedido item3 = new ItemPedido("Detergente", 50.0);
+        ItemPedido item4 = new ItemPedido("Vassoura", 40.0);
         itens2.add(item3);
         itens2.add(item4);
-
-        Usuario funcionario2 = usuarios.get(1);
-
-        Pedido pedido2 = new Pedido("P002", itens2,funcionario2, "Equipamentos para escritório");
-
+        Usuario funcionario2 = usuarios.get(10);
+        Pedido pedido2 = new Pedido("P002", itens2, funcionario2, "Materiais de limpeza");
         pedido2.setValorT(pedido2.calculaValor());
+
+        ArrayList<ItemPedido> itens3 = new ArrayList<>();
+        ItemPedido item5 = new ItemPedido("Calculadora", 120.0);
+        ItemPedido item6 = new ItemPedido("Monitor", 900.0);
+        itens3.add(item5);
+        itens3.add(item6);
+        Usuario funcionario3 = usuarios.get(15);
+        Pedido pedido3 = new Pedido("P003", itens3, funcionario3, "Equipamentos para o financeiro");
+        pedido3.setValorT(pedido3.calculaValor());
+
+        ArrayList<ItemPedido> itens4 = new ArrayList<>();
+        ItemPedido item7 = new ItemPedido("Notebook", 3500.0);
+        ItemPedido item8 = new ItemPedido("Mouse", 150.0);
+        itens4.add(item7);
+        itens4.add(item8);
+        Usuario funcionario4 = usuarios.get(20);
+        Pedido pedido4 = new Pedido("P004", itens4, funcionario4, "Equipamentos para engenharia");
+        pedido4.setValorT(pedido4.calculaValor());
+
+        ArrayList<ItemPedido> itens5 = new ArrayList<>();
+        ItemPedido item9 = new ItemPedido("Furadeira", 600.0);
+        ItemPedido item10 = new ItemPedido("Caixa de ferramentas", 350.0);
+        itens5.add(item9);
+        itens5.add(item10);
+        Usuario funcionario5 = usuarios.get(25);
+        Pedido pedido5 = new Pedido("P005", itens5, funcionario5, "Ferramentas para manutenção");
+        pedido5.setValorT(pedido5.calculaValor());
 
         pedidos.add(pedido1);
         pedidos.add(pedido2);
-
-
+        pedidos.add(pedido3);
+        pedidos.add(pedido4);
+        pedidos.add(pedido5);
     }
 
     public void mostrarPedidos(){
