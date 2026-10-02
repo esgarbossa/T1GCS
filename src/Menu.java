@@ -12,6 +12,7 @@ public class Menu {
             case 3:
             case 4:
             case 5:
+            case 6:
                 return true;
             default:
                 return false;
@@ -87,10 +88,11 @@ public class Menu {
             System.out.println("[3] - Buscar pedido por item" + StatusOpcaoAdministrador(3));
             System.out.println("[4] - Buscar pedido por data" + StatusOpcaoAdministrador(4));
             System.out.println("[5] - Avaliar pedido" + StatusOpcaoAdministrador(5));
+            System.out.println("[6] - Cadastrar funcionario" + StatusOpcaoAdministrador(6));
             System.out.println("[0] - Voltar");
             int opcao = in.nextInt();
             in.nextLine();
-            if (opcao >= 1 && opcao <= 5 && !OpcaoAdministradorDisponivel(opcao)){
+            if (opcao >= 1 && opcao <= 6 && !OpcaoAdministradorDisponivel(opcao)){
                 System.out.println("Essa opção ainda está indisponível.");
                 continue;
             }
@@ -143,10 +145,48 @@ public class Menu {
                         app.avaliarPedidos(adm, pedido, in);
                     }
                     break;
+                case 6:
+                    System.out.println("Selecione o departamento do funcionario:");
+                    System.out.println("[1] - RH");
+                    System.out.println("[2] - Limpeza");
+                    System.out.println("[3] - Financeiro");
+                    System.out.println("[4] - Engenharia");
+                    System.out.println("[5] - Manutenção");
+                    int tipoFuncionario = in.nextInt();
+                    in.nextLine();
+                    Usuario novoFuncionario = null;
+                    switch (tipoFuncionario){
+                        case 1:
+                            novoFuncionario = new RH();
+                            break;
+                        case 2:
+                            novoFuncionario = new Limpeza();
+                            break;
+                        case 3:
+                            novoFuncionario = new Financeiro();
+                            break;
+                        case 4:
+                            novoFuncionario = new Engenheiro();
+                            break;
+                        case 5:
+                            novoFuncionario = new Manutencao();
+                            break;
+                        default:
+                            System.out.println("Departamento inválido!");
+                            break;
+                    }
+                    if (novoFuncionario != null){
+                        novoFuncionario.cadastro(in);
+                        if (app.usuarioAtual(novoFuncionario.getMatricula()) != null){
+                            System.out.println("Já existe um funcionário com essa matrícula!");
+                        } else {
+                            app.getUsuarios().add(novoFuncionario);
+                            System.out.println("Funcionário cadastrado com sucesso!");
+                        }
+                    }
+                    break;
                 case 0:
-                    System.out.println(
-                            "Voltando para a tela inicial..."
-                    );
+                    System.out.println("Voltando para a tela inicial...");
                     menuAberto = false;
                     break;
                 default:
