@@ -75,13 +75,16 @@ public class App {
 
     public void resumoPedido(Pedido pedido) {
         System.out.println("ID: " + pedido.getId());
-        System.out.println(pedido.getDescricao());
+        System.out.println("Descrição do pedido: " + pedido.getDescricao());
+        System.out.println("Itens do Pedido");
+        System.out.println("============");
         mostrarItemAux(pedido);
         System.out.println("Valor Total: R$" + pedido.getValorT());
         System.out.println("Funcionario Solicitante: ");
         System.out.println(pedido.getFuncionario().toString());
         System.out.println(pedido.getDataPedido());
         System.out.println("Status: " + pedido.getStatus());
+        System.out.println("\n####################################\n");
     }
 
     public void adicionarFuncionarios(){
@@ -164,20 +167,19 @@ public class App {
         usuarios.add(manutencao5);
     }
 
-    public void mostrarPedidos(){
-        for(int i=0;i<pedidos.size();i++){
-            System.out.println("Itens: ");
-            mostrarItemAux(pedidos.get(i));
-            resumoPedido(pedidos.get(i));
-        }
-    }
 
     private void mostrarItemAux(Pedido pedido){
         ArrayList<ItemPedido> items = pedido.getItem();
         for(int i=0;i < items.size();i++){
             System.out.println("Descrição: " +  items.get(i).getNome());
             System.out.println("Valor: " +  items.get(i).getValor());
-            System.out.println("=========================================");
+            System.out.println("============");
+        }
+    }
+
+    public void mostrarPedidos(){
+        for(int i=0;i<pedidos.size();i++){
+            resumoPedido(pedidos.get(i));
         }
     }
 
@@ -186,14 +188,14 @@ public class App {
             System.out.println("Pedido ja avaliado");
             return;
         }
-        if(administrador.getTipo().equalsIgnoreCase("Administrador")){
+        if(administrador.getTipo().equalsIgnoreCase("Administração")){
             System.out.println("Digite a senha");
             String senha = sc.nextLine();
             if(senha.equalsIgnoreCase(administrador.getSenha())){
                 resumoPedido(pedido);
                 System.out.println("[1] Aprovar pedido");
                 System.out.println("[2] Reprovar pedido");
-                int op = sc.nextInt();
+                int op = Integer.parseInt(sc.nextLine());
                 switch (op){
                     case 1:
                         pedido.setStatus("Aprovado");
@@ -219,12 +221,21 @@ public class App {
         }
     }
 
-    public void ExcluirPedidos(Pedido pedido, Usuario usuario){
+    public void excluirPedidos(Pedido pedido, Usuario usuario){
         if(usuario.equals(pedido.getFuncionario())){
             pedidos.remove(pedido);
+        } else {
+            System.out.println("Usuario nao autorizado.");
         }
     }
 
+    public ArrayList<Administrador> getAdmins() {
+        return admins;
+    }
+
+    public void setAdmins(ArrayList<Administrador> admins) {
+        this.admins = admins;
+    }
 
     public ArrayList<Pedido> getPedidos() {
         return pedidos;
