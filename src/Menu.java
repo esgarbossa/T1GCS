@@ -46,13 +46,11 @@ public class Menu {
             System.out.println("== Tela inicial ==");
             System.out.println("[1] - Entrar como administrador");
             System.out.println("[2] - Entrar como funcionario");
-            int opcao = in.nextInt();
-            in.nextLine();
+            int opcao = LerInteiro(in);
             switch (opcao) {
                 case 1:
                     System.out.println("Digite sua matricula:");
-                    int matriculaAdm = in.nextInt();
-                    in.nextLine();
+                    int matriculaAdm = LerInteiro(in);
                     Administrador adm = app.administradorAtual(matriculaAdm);
                     if (adm == null) {
                         System.out.println("Administrador não encontrado!");
@@ -69,8 +67,7 @@ public class Menu {
                     break;
                 case 2:
                     System.out.println("Digite sua matricula:");
-                    int matriculaFuncionario = in.nextInt();
-                    in.nextLine();
+                    int matriculaFuncionario = LerInteiro(in);
                     Usuario funcionario = app.usuarioAtual(matriculaFuncionario);
                     if (funcionario == null){
                         System.out.println("Funcionario não encontrado!");
@@ -107,8 +104,7 @@ public class Menu {
             System.out.println("[9] - Maior pedido aberto" + StatusOpcaoAdministrador(9));
             System.out.println("[0] - Voltar");
             System.out.println("[0] - Voltar");
-            int opcao = in.nextInt();
-            in.nextLine();
+            int opcao = LerInteiro(in);
             if (opcao >= 1 && opcao <= 9 && !OpcaoAdministradorDisponivel(opcao)){
                 System.out.println("Essa opção ainda está indisponível.");
                 continue;
@@ -123,8 +119,7 @@ public class Menu {
                     break;
                 case 2:
                     System.out.println("Digite a matricula do funcionario:");
-                    int matricula = in.nextInt();
-                    in.nextLine();
+                    int matricula = LerInteiro(in);
                     app.buscaPorFuncionario(matricula);
                     break;
                 case 3:
@@ -153,8 +148,7 @@ public class Menu {
                         app.resumoPedido(app.getPedidos().get(i));
                     }
                     System.out.println("Escolha o número do pedido:");
-                    int numeroPedido = in.nextInt();
-                    in.nextLine();
+                    int numeroPedido = LerInteiro(in);
                     if (numeroPedido < 1 || numeroPedido > app.getPedidos().size()){
                         System.out.println("Pedido inválido!");
                     } else {
@@ -169,8 +163,7 @@ public class Menu {
                     System.out.println("[3] - Financeiro");
                     System.out.println("[4] - Engenharia");
                     System.out.println("[5] - Manutenção");
-                    int tipoFuncionario = in.nextInt();
-                    in.nextLine();
+                    int tipoFuncionario = LerInteiro(in);
                     Usuario novoFuncionario = null;
                     switch (tipoFuncionario){
                         case 1:
@@ -234,8 +227,7 @@ public class Menu {
             System.out.println("[1] - Cadastrar pedido");
             System.out.println("[2] - Remover pedido");
             System.out.println("[0] - Voltar");
-            int opcao = in.nextInt();
-            in.nextLine();
+            int opcao = LerInteiro(in);
             switch (opcao){
                 case 1:
                     Pedido novoPedido = new Pedido();
