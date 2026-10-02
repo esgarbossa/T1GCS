@@ -8,9 +8,10 @@ public class App {
 
     private ArrayList<Usuario> usuarios = new ArrayList<>();
 
+    private ArrayList<Administrador> admins = new ArrayList<>();
+
     public App() {
-        this.pedidos = new ArrayList<>();
-        this.usuarios = new ArrayList<>();
+
     }
 
     public void buscarPorItem(String descricao) {
@@ -24,6 +25,37 @@ public class App {
                 }
             }
 
+        }
+    }
+
+    public Usuario usuarioAtual(int matricula){
+        for (int i =0; i < usuarios.size();i++){
+            if (matricula == usuarios.get(i).getMatricula()) {
+                return usuarios.get(i);
+            }
+        }
+        return null;
+    }
+
+    public Administrador administradorAtual(int matricula){
+        for (int i =0; i < admins.size();i++){
+            if (matricula == admins.get(i).getMatricula()) {
+                return admins.get(i);
+            }
+        }
+        return null;
+    }
+
+    public void buscaPorFuncionario(int matricula){
+        boolean encontrou = false;
+        for (int i = 0;i < pedidos.size(); i++){
+            if (pedidos.get(i).getFuncionario().getMatricula() == matricula){
+                resumoPedido(pedidos.get(i));
+                encontrou = true;
+            }
+        }
+        if (!encontrou){
+            System.out.println("O funcionário não lançou nenhum pedido");
         }
     }
 
@@ -43,18 +75,24 @@ public class App {
 
     public void resumoPedido(Pedido pedido) {
         System.out.println("ID: " + pedido.getId());
-        System.out.println(pedido.getDescricao());
+        System.out.println("Descrição do pedido: " + pedido.getDescricao());
+        System.out.println("Itens do Pedido");
+        System.out.println("============");
         mostrarItemAux(pedido);
+        System.out.println("Valor Total: R$" + pedido.getValorT());
+        System.out.println("Funcionario Solicitante: ");
+        System.out.println(pedido.getFuncionario().toString());
         System.out.println(pedido.getDataPedido());
         System.out.println("Status: " + pedido.getStatus());
+        System.out.println("\n####################################\n");
     }
 
     public void adicionarFuncionarios(){
-        Usuario adm1 = new Administrador(2712, "Pedro Cristal", "asd123" );
-        Usuario adm2 = new Administrador(9374, "Lucas Gargioni", "aka98" );
-        Usuario adm3 = new Administrador(7273, "Lucas Neves", "kaka87" );
-        Usuario adm4 = new Administrador(4162, "Tiago Audino", "snsba67" );
-        Usuario adm5 = new Administrador(2162, "Enzo Sgarbossa", "mamamma90" );
+        Administrador adm1 = new Administrador(2712, "Pedro Cristal", "asd123" );
+        Administrador adm2 = new Administrador(9374, "Lucas Gargioni", "aka98" );
+        Administrador adm3 = new Administrador(7273, "Lucas Neves", "kaka87" );
+        Administrador adm4 = new Administrador(4162, "Tiago Audino", "snsba67" );
+        Administrador adm5 = new Administrador(2162, "Enzo Sgarbossa", "mamamma90" );
 
         Usuario rh1 = new RH(3101, "Ana Souza");
         Usuario rh2 = new RH(3102, "Bruno Lima");
@@ -92,6 +130,12 @@ public class App {
         usuarios.add(adm4);
         usuarios.add(adm5);
 
+        admins.add(adm1);
+        admins.add(adm2);
+        admins.add(adm3);
+        admins.add(adm4);
+        admins.add(adm5);
+
         usuarios.add(rh1);
         usuarios.add(rh2);
         usuarios.add(rh3);
@@ -122,20 +166,69 @@ public class App {
         usuarios.add(manutencao4);
         usuarios.add(manutencao5);
     }
+    public void instanciarPedidos() {
+        ArrayList<ItemPedido> itens1 = new ArrayList<>();
+        ItemPedido item1 = new ItemPedido("Cadeira", 500.0);
+        ItemPedido item2 = new ItemPedido("Mesa", 700.0);
+        itens1.add(item1);
+        itens1.add(item2);
+        Usuario funcionario1 = usuarios.get(5);
+        Pedido pedido1 = new Pedido("P001", itens1, funcionario1, "Materiais para o RH");
+        pedido1.setValorT(pedido1.calculaValor());
 
-    public void mostrarPedidos(){
-        for(int i=0;i<pedidos.size();i++){
-            System.out.println("Itens: ");
-            mostrarItemAux(pedidos.get(i));
-        }
+        ArrayList<ItemPedido> itens2 = new ArrayList<>();
+        ItemPedido item3 = new ItemPedido("Detergente", 50.0);
+        ItemPedido item4 = new ItemPedido("Vassoura", 40.0);
+        itens2.add(item3);
+        itens2.add(item4);
+        Usuario funcionario2 = usuarios.get(10);
+        Pedido pedido2 = new Pedido("P002", itens2, funcionario2, "Materiais de limpeza");
+
+        ArrayList<ItemPedido> itens3 = new ArrayList<>();
+        ItemPedido item5 = new ItemPedido("Calculadora", 120.0);
+        ItemPedido item6 = new ItemPedido("Monitor", 900.0);
+        itens3.add(item5);
+        itens3.add(item6);
+        Usuario funcionario3 = usuarios.get(15);
+        Pedido pedido3 = new Pedido("P003", itens3, funcionario3, "Equipamentos para o financeiro");
+
+        ArrayList<ItemPedido> itens4 = new ArrayList<>();
+        ItemPedido item7 = new ItemPedido("Notebook", 3500.0);
+        ItemPedido item8 = new ItemPedido("Mouse", 150.0);
+        itens4.add(item7);
+        itens4.add(item8);
+        Usuario funcionario4 = usuarios.get(20);
+        Pedido pedido4 = new Pedido("P004", itens4, funcionario4, "Equipamentos para engenharia");
+
+        ArrayList<ItemPedido> itens5 = new ArrayList<>();
+        ItemPedido item9 = new ItemPedido("Furadeira", 600.0);
+        ItemPedido item10 = new ItemPedido("Caixa de ferramentas", 350.0);
+        itens5.add(item9);
+        itens5.add(item10);
+        Usuario funcionario5 = usuarios.get(25);
+        Pedido pedido5 = new Pedido("P005", itens5, funcionario5, "Ferramentas para manutenção");
+
+
+        pedidos.add(pedido1);
+        pedidos.add(pedido2);
+        pedidos.add(pedido3);
+        pedidos.add(pedido4);
+        pedidos.add(pedido5);
     }
+
 
     private void mostrarItemAux(Pedido pedido){
         ArrayList<ItemPedido> items = pedido.getItem();
         for(int i=0;i < items.size();i++){
             System.out.println("Descrição: " +  items.get(i).getNome());
             System.out.println("Valor: " +  items.get(i).getValor());
-            System.out.println("=========================================");
+            System.out.println("============");
+        }
+    }
+
+    public void mostrarPedidos(){
+        for(int i=0;i<pedidos.size();i++){
+            resumoPedido(pedidos.get(i));
         }
     }
 
@@ -144,14 +237,14 @@ public class App {
             System.out.println("Pedido ja avaliado");
             return;
         }
-        if(administrador.getTipo().equalsIgnoreCase("Administrador")){
+        if(administrador.getTipo().equalsIgnoreCase("Administração")){
             System.out.println("Digite a senha");
             String senha = sc.nextLine();
             if(senha.equalsIgnoreCase(administrador.getSenha())){
                 resumoPedido(pedido);
                 System.out.println("[1] Aprovar pedido");
                 System.out.println("[2] Reprovar pedido");
-                int op = sc.nextInt();
+                int op = Integer.parseInt(sc.nextLine());
                 switch (op){
                     case 1:
                         pedido.setStatus("Aprovado");
@@ -177,6 +270,21 @@ public class App {
         }
     }
 
+    public void excluirPedidos(Pedido pedido, Usuario usuario){
+        if(usuario.equals(pedido.getFuncionario())){
+            pedidos.remove(pedido);
+        } else {
+            System.out.println("Usuario nao autorizado.");
+        }
+    }
+
+    public ArrayList<Administrador> getAdmins() {
+        return admins;
+    }
+
+    public void setAdmins(ArrayList<Administrador> admins) {
+        this.admins = admins;
+    }
 
     public ArrayList<Pedido> getPedidos() {
         return pedidos;

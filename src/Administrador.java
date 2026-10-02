@@ -35,6 +35,10 @@ public class Administrador extends Usuario {
 
     @Override
     public String getTipo() {
-        return "Administrador";
+        return "Administração";
+    }
+
+    public double getLimite(){
+        return 200000;
     }
 }

@@ -27,4 +27,8 @@ public class Manutencao extends Usuario {
         return man;
     }
 
+    public double getLimite(){
+        return 100000;
+    }
+
 }

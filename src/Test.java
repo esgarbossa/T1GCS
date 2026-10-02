@@ -7,23 +7,19 @@ import java.util.Scanner;
 public class Test {
     public static void main(String[] args) {
 
-        Scanner in = new Scanner(System.in);
+        EstatisticasMaiorPedidoAberto maiorPedidoAberto = new EstatisticasMaiorPedidoAberto();
 
-        Usuario user = new Engenheiro();
+        EstatisticasTotais totais = new EstatisticasTotais();
 
-        user.cadastro(in);
-
-        System.out.println(user.toString());
-
-
-
-/*
         App app = new App();
 
         Scanner in = new Scanner(System.in);
 
+        app.adicionarFuncionarios();
 
-        ArrayList<ItemPedido> itemPedido = new ArrayList();
+        Usuario user1 = app.usuarioAtual(5301);
+
+        Administrador admin = app.getAdmins().get(0);
 
         ItemPedido item1= new ItemPedido("A", 100);
         ItemPedido item2= new ItemPedido("B", 100);
@@ -39,22 +35,31 @@ public class Test {
 
         itens2.add(item2);
 
-        Pedido pedido1 = new Pedido();
+        Pedido pedido1 = new Pedido("1",itens1,user1,"a");
+        Pedido pedido2 = new Pedido("2", itens2,user1,"b");
 
-        Pedido pedido2 = new Pedido();
 
 
-        pedido1.cadastroPedido(in);
+        if (pedido1.getItem() != null){
+            app.getPedidos().add(pedido1);
+        }
+        if (pedido2.getItem() != null){
+            app.getPedidos().add(pedido2);
+        }
 
-        ArrayList<Pedido> pedidos = new ArrayList<>();
+        maiorPedidoAberto.mostrar(admin,app.getPedidos());
 
-        pedidos.add(pedido1);
-        pedidos.add(pedido2);
+        app.avaliarPedidos(admin,pedido1,in);
+        app.avaliarPedidos(admin,pedido2,in);
 
-        app.setPedidos(pedidos);
 
-        app.buscarPorData(LocalDate.of(2026,10,1));
-*/
+
+
+
+
+
+
+
 
 
 
