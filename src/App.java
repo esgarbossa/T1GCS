@@ -8,9 +8,10 @@ public class App {
 
     private ArrayList<Usuario> usuarios = new ArrayList<>();
 
+    private ArrayList<Administrador> admins = new ArrayList<>();
+
     public App() {
-        this.pedidos = new ArrayList<>();
-        this.usuarios = new ArrayList<>();
+
     }
 
     public void buscarPorItem(String descricao) {
@@ -25,6 +26,15 @@ public class App {
             }
 
         }
+    }
+
+    public Administrador administradorAtual(int matricula){
+        for (int i =0; i < admins.size();i++){
+            if (matricula == admins.get(i).getMatricula()) {
+                return admins.get(i);
+            }
+        }
+        return null;
     }
 
     public void buscarPorData(LocalDate data){
@@ -50,11 +60,11 @@ public class App {
     }
 
     public void adicionarFuncionarios(){
-        Usuario adm1 = new Administrador(2712, "Pedro Cristal", "asd123" );
-        Usuario adm2 = new Administrador(9374, "Lucas Gargioni", "aka98" );
-        Usuario adm3 = new Administrador(7273, "Lucas Neves", "kaka87" );
-        Usuario adm4 = new Administrador(4162, "Tiago Audino", "snsba67" );
-        Usuario adm5 = new Administrador(2162, "Enzo Sgarbossa", "mamamma90" );
+        Administrador adm1 = new Administrador(2712, "Pedro Cristal", "asd123" );
+        Administrador adm2 = new Administrador(9374, "Lucas Gargioni", "aka98" );
+        Administrador adm3 = new Administrador(7273, "Lucas Neves", "kaka87" );
+        Administrador adm4 = new Administrador(4162, "Tiago Audino", "snsba67" );
+        Administrador adm5 = new Administrador(2162, "Enzo Sgarbossa", "mamamma90" );
 
         Usuario rh1 = new RH(3101, "Ana Souza");
         Usuario rh2 = new RH(3102, "Bruno Lima");
@@ -91,6 +101,12 @@ public class App {
         usuarios.add(adm3);
         usuarios.add(adm4);
         usuarios.add(adm5);
+
+        admins.add(adm1);
+        admins.add(adm2);
+        admins.add(adm3);
+        admins.add(adm4);
+        admins.add(adm5);
 
         usuarios.add(rh1);
         usuarios.add(rh2);
