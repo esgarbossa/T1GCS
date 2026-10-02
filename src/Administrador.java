@@ -29,7 +29,9 @@ public class Administrador extends Usuario {
         return adm;
     }
 
-
+    public String getSenha() {
+        return senha;
+    }
 
     @Override
     public String getTipo() {
