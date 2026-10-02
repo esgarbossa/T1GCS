@@ -14,6 +14,14 @@ public class App {
 
     }
 
+    public void concluirPedido(Scanner in, Administrador admin, Pedido pedido){
+        if (pedido.getStatus().equalsIgnoreCase("Aprovada")){
+            pedido.setStatus("Concluido");
+        } else {
+            System.out.println("Pedio não foi aprovado ou ja foi concluido");
+        }
+    }
+
     public void buscarPorItem(String descricao) {
         for(int i =0;i < pedidos.size();i++){
             boolean encontrou = false;
