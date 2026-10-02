@@ -85,6 +85,7 @@ public class Menu {
             }
         }
     }
+    /*
     public void MenuAdministrador(Scanner in, Administrador adm){
         boolean menuAberto = true;
 
@@ -162,8 +163,10 @@ public class Menu {
                     System.out.println("[3] - Financeiro");
                     System.out.println("[4] - Engenharia");
                     System.out.println("[5] - Manutenção");
+                    System.out.println("[6] - Administrador");
                     int tipoFuncionario = LerInteiro(in);
                     Usuario novoFuncionario = null;
+                    Administrador novoAdministrador = null;
                     switch (tipoFuncionario){
                         case 1:
                             novoFuncionario = new RH();
@@ -179,6 +182,9 @@ public class Menu {
                             break;
                         case 5:
                             novoFuncionario = new Manutencao();
+                            break;
+                        case 6:
+                            novoAdministrador = new Administrador();
                             break;
                         default:
                             System.out.println("Departamento inválido!");
@@ -198,6 +204,22 @@ public class Menu {
                         } else {
                             app.getUsuarios().add(novoFuncionario);
                             System.out.println("Funcionário cadastrado com sucesso!");
+                        }
+                    } else if (novoAdministrador != null){
+                        try {
+                            novoAdministrador.cadastro(in);
+                            in.nextLine();
+                        } catch (Exception erro) {
+                            System.out.println("Matrícula inválida. O funcionário não foi cadastrado.");
+                            in.nextLine();
+                            break;
+                        }
+                        if (app.usuarioAtual(novoFuncionario.getMatricula()) != null){
+                            System.out.println("Já existe um funcionário com essa matrícula!");
+                        } else {
+                            app.getUsuarios().add(novoAdministrador);
+                            app.getAdmins().add(novoAdministrador);
+                            System.out.println("Administrador cadastrado com sucesso!");
                         }
                     }
                     break;
@@ -222,6 +244,8 @@ public class Menu {
             }
         }
     }
+
+     */
     public void MenuFuncionario(Scanner in, Usuario funcionario){
         boolean menuAberto = true;
         while (menuAberto){
