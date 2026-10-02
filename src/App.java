@@ -177,6 +177,12 @@ public class App {
         }
     }
 
+    public void ExcluirPedidos(Pedido pedido, Usuario usuario){
+        if(usuario.equals(pedido.getFuncionario())){
+            pedidos.remove(pedido);
+        }
+    }
+
 
     public ArrayList<Pedido> getPedidos() {
         return pedidos;
