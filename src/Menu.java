@@ -156,9 +156,69 @@ public class Menu {
         }
     }
     public void MenuFuncionario(Scanner in, Usuario funcionario){
-        System.out.println("== Menu funcionario ==");
-        System.out.println("Nome: " + funcionario.getNome());
-        System.out.println("Departamento: " + funcionario.getTipo());
-        System.out.println("Opções:");
+        boolean menuAberto = true;
+        while (menuAberto){
+            System.out.println();
+            System.out.println("== Menu funcionario ==");
+            System.out.println("Nome: " + funcionario.getNome());
+            System.out.println("Departamento: " + funcionario.getTipo());
+            System.out.println();
+            System.out.println("[1] - Cadastrar pedido");
+            System.out.println("[2] - Remover pedido");
+            System.out.println("[0] - Voltar");
+            int opcao = in.nextInt();
+            in.nextLine();
+            switch (opcao){
+                case 1:
+                    Pedido novoPedido = new Pedido();
+                    novoPedido.cadastroPedido(in, funcionario);
+                    if (novoPedido.getItem() == null){
+                        System.out.println("O pedido ultrapassou o limite permitido.");
+                    } else {
+                        app.getPedidos().add(novoPedido);
+                        System.out.println("Pedido cadastrado com sucesso!");
+                    }
+                    break;
+                case 2:
+                    boolean encontrouPedido = false;
+                    System.out.println("Seus pedidos:");
+                    for (int i = 0; i < app.getPedidos().size(); i++){
+                        Pedido pedidoAtual =
+                                app.getPedidos().get(i);
+                        if (pedidoAtual.getFuncionario().equals(funcionario)){
+                            app.resumoPedido(pedidoAtual);
+                            encontrouPedido = true;
+                        }
+                    }
+                    if (!encontrouPedido){
+                        System.out.println("Você não possui pedidos cadastrados.");
+                        break;
+                    }
+                    System.out.println("Digite o ID do pedido que deseja remover:");
+                    String idPedido = in.nextLine();
+                    Pedido pedidoRemover = null;
+                    for (int i = 0; i < app.getPedidos().size(); i++){
+                        Pedido pedidoAtual =
+                                app.getPedidos().get(i);
+                        if (pedidoAtual.getId() != null && pedidoAtual.getId().equalsIgnoreCase(idPedido) && pedidoAtual.getFuncionario().equals(funcionario)){pedidoRemover = pedidoAtual;
+                            break;
+                        }
+                    }
+                    if (pedidoRemover == null){
+                        System.out.println("Pedido não encontrado!");
+                    } else {
+                        app.excluirPedidos(pedidoRemover, funcionario);
+                        System.out.println("Pedido removido com sucesso!");
+                    }
+                    break;
+                case 0:
+                    System.out.println("Voltando para a tela inicial...");
+                    menuAberto = false;
+                    break;
+                default:
+                    System.out.println("Opção inválida!");
+                    break;
+            }
+        }
     }
 }
