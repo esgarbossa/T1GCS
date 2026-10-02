@@ -28,6 +28,15 @@ public class App {
         }
     }
 
+    public Usuario usuarioAtual(int matricula){
+        for (int i =0; i < usuarios.size();i++){
+            if (matricula == usuarios.get(i).getMatricula()) {
+                return usuarios.get(i);
+            }
+        }
+        return null;
+    }
+
     public Administrador administradorAtual(int matricula){
         for (int i =0; i < admins.size();i++){
             if (matricula == admins.get(i).getMatricula()) {
@@ -39,7 +48,7 @@ public class App {
 
     public void buscaPorFuncionario(int matricula){
         boolean encontrou = false;
-        for (int i = 0;i < usuarios.size(); i++){
+        for (int i = 0;i < pedidos.size(); i++){
             if (pedidos.get(i).getFuncionario().getMatricula() == matricula){
                 resumoPedido(pedidos.get(i));
                 encontrou = true;

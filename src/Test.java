@@ -11,31 +11,9 @@ public class Test {
 
         Scanner in = new Scanner(System.in);
 
-        Usuario user = new Engenheiro(1,"A");
+        app.adicionarFuncionarios();
 
-        System.out.println(user.toString());
-
-        Pedido pedido = new Pedido("1",new ArrayList<>(),user,"Pedido novo");
-        pedido.cadastroPedido(in);
-        if (pedido.getItem() != null){
-            app.getPedidos().add(pedido);
-            app.mostrarPedidos();
-        } else {
-            System.out.println("Valor limite de departamento");
-        }
-
-
-
-
-
-
-/*
-        App app = new App();
-
-        Scanner in = new Scanner(System.in);
-
-
-        ArrayList<ItemPedido> itemPedido = new ArrayList();
+        Usuario user1 = app.usuarioAtual(5301);
 
         ItemPedido item1= new ItemPedido("A", 100);
         ItemPedido item2= new ItemPedido("B", 100);
@@ -51,22 +29,16 @@ public class Test {
 
         itens2.add(item2);
 
-        Pedido pedido1 = new Pedido();
+        Pedido pedido1 = new Pedido("1",itens1,user1,"a");
+        Pedido pedido2 = new Pedido("2",itens1,user1,"a");
 
-        Pedido pedido2 = new Pedido();
 
-
-        pedido1.cadastroPedido(in);
-
-        ArrayList<Pedido> pedidos = new ArrayList<>();
-
-        pedidos.add(pedido1);
-        pedidos.add(pedido2);
-
-        app.setPedidos(pedidos);
+        app.getPedidos().add(pedido1);
+        app.getPedidos().add(pedido2);
+        app.buscaPorFuncionario(user1.matricula);
 
         app.buscarPorData(LocalDate.of(2026,10,1));
-*/
+
 
 
 
