@@ -140,6 +140,10 @@ public class App {
     }
 
     public void avaliarPedidos(Administrador administrador, Pedido pedido, Scanner sc){
+        if(pedido.isAvaliado() == true){
+            System.out.println("Pedido ja avaliado");
+            return;
+        }
         if(administrador.getTipo().equalsIgnoreCase("Administrador")){
             System.out.println("Digite a senha");
             String senha = sc.nextLine();
@@ -152,10 +156,12 @@ public class App {
                     case 1:
                         pedido.setStatus("Aprovado");
                         System.out.println("Pedido aprovado com sucesso!");
+                        pedido.setAvaliado(true);
                         break;
                     case 2:
                         pedido.setStatus("Reprovado");
                         System.out.println("Pedido reprovado com sucesso!");
+                        pedido.setAvaliado(true);
                         break;
                     default:
                         System.out.println("Opcao nao valida!");

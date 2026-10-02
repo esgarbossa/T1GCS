@@ -11,6 +11,7 @@ public class Pedido implements IntPedidos {
     private LocalDate dataConclusao;
     private String status;
     private LocalDate dataPedido;
+    private boolean avaliado;
 
 
 
@@ -81,6 +82,10 @@ public class Pedido implements IntPedidos {
         this.setStatus("Aberto");
     }
     public void concluirPedido() {
+        if(this.avaliado == false){
+            System.out.println("Pedido nao pode ser executado pois foi reprovado.");
+            return;
+        }
         this.dataConclusao = LocalDate.now();
         this.status = "Concluido";
     }
@@ -135,5 +140,13 @@ public class Pedido implements IntPedidos {
     public LocalDate getDataPedido() {return dataPedido;}
 
     public void setDataPedido(LocalDate dataPedido) {this.dataPedido = dataPedido;}
+
+    public boolean isAvaliado() {
+        return avaliado;
+    }
+
+    public void setAvaliado(boolean avaliado) {
+        this.avaliado = avaliado;
+    }
 }
 
