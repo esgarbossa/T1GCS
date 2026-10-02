@@ -183,7 +183,6 @@ public class App {
         itens2.add(item4);
         Usuario funcionario2 = usuarios.get(10);
         Pedido pedido2 = new Pedido("P002", itens2, funcionario2, "Materiais de limpeza");
-        pedido2.setValorT(pedido2.calculaValor());
 
         ArrayList<ItemPedido> itens3 = new ArrayList<>();
         ItemPedido item5 = new ItemPedido("Calculadora", 120.0);
@@ -192,7 +191,6 @@ public class App {
         itens3.add(item6);
         Usuario funcionario3 = usuarios.get(15);
         Pedido pedido3 = new Pedido("P003", itens3, funcionario3, "Equipamentos para o financeiro");
-        pedido3.setValorT(pedido3.calculaValor());
 
         ArrayList<ItemPedido> itens4 = new ArrayList<>();
         ItemPedido item7 = new ItemPedido("Notebook", 3500.0);
@@ -201,7 +199,6 @@ public class App {
         itens4.add(item8);
         Usuario funcionario4 = usuarios.get(20);
         Pedido pedido4 = new Pedido("P004", itens4, funcionario4, "Equipamentos para engenharia");
-        pedido4.setValorT(pedido4.calculaValor());
 
         ArrayList<ItemPedido> itens5 = new ArrayList<>();
         ItemPedido item9 = new ItemPedido("Furadeira", 600.0);
@@ -210,7 +207,7 @@ public class App {
         itens5.add(item10);
         Usuario funcionario5 = usuarios.get(25);
         Pedido pedido5 = new Pedido("P005", itens5, funcionario5, "Ferramentas para manutenção");
-        pedido5.setValorT(pedido5.calculaValor());
+
 
         pedidos.add(pedido1);
         pedidos.add(pedido2);
