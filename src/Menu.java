@@ -185,7 +185,14 @@ public class Menu {
                             break;
                     }
                     if (novoFuncionario != null){
-                        novoFuncionario.cadastro(in);
+                        try {
+                            novoFuncionario.cadastro(in);
+                            in.nextLine();
+                        } catch (Exception erro) {
+                            System.out.println("Matrícula inválida. O funcionário não foi cadastrado.");
+                            in.nextLine();
+                            break;
+                        }
                         if (app.usuarioAtual(novoFuncionario.getMatricula()) != null){
                             System.out.println("Já existe um funcionário com essa matrícula!");
                         } else {
