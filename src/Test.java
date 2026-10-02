@@ -7,13 +7,25 @@ import java.util.Scanner;
 public class Test {
     public static void main(String[] args) {
 
+        App app = new App();
+
         Scanner in = new Scanner(System.in);
 
-        Usuario user = new Engenheiro();
-
-        user.cadastro(in);
+        Usuario user = new Engenheiro(1,"A");
 
         System.out.println(user.toString());
+
+        Pedido pedido = new Pedido("1",new ArrayList<>(),user,"Pedido novo");
+        pedido.cadastroPedido(in);
+        if (pedido.getItem() != null){
+            app.getPedidos().add(pedido);
+            app.mostrarPedidos();
+        } else {
+            System.out.println("Valor limite de departamento");
+        }
+
+
+
 
 
 

@@ -166,5 +166,13 @@ public class Pedido implements IntPedidos {
     public void setAvaliado(boolean avaliado) {
         this.avaliado = avaliado;
     }
+
+    public double getValorT() {
+        return valorT;
+    }
+
+    public void setValorT(double valorT) {
+        this.valorT = valorT;
+    }
 }
 

@@ -55,6 +55,7 @@ public class App {
         System.out.println("ID: " + pedido.getId());
         System.out.println(pedido.getDescricao());
         mostrarItemAux(pedido);
+        System.out.println("Valor Total: R$" + pedido.getValorT());
         System.out.println(pedido.getDataPedido());
         System.out.println("Status: " + pedido.getStatus());
     }
@@ -143,6 +144,7 @@ public class App {
         for(int i=0;i<pedidos.size();i++){
             System.out.println("Itens: ");
             mostrarItemAux(pedidos.get(i));
+            resumoPedido(pedidos.get(i));
         }
     }
 
