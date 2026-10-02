@@ -74,12 +74,14 @@ public class Pedido implements IntPedidos {
         return valor;
     }
 
-    public void cadastroPedido(Scanner in) {
+    public void cadastroPedido(Scanner in, Usuario usuarioAtual) {
         System.out.println("Digite o id do pedido");
         String id = in.nextLine();
         this.id = id;
 
         this.cadastroItem(in);
+
+        this.funcionario = usuarioAtual;
 
         valorT = calculaValor();
 

@@ -29,6 +29,6 @@ public class Limpeza extends Usuario{
     }
 
     public double getLimite(){
-        return 300000.00;
+        return 10000.00;
     }
 }
