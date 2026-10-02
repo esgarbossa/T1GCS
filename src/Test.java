@@ -7,6 +7,10 @@ import java.util.Scanner;
 public class Test {
     public static void main(String[] args) {
 
+        EstatisticasMaiorPedidoAberto maiorPedidoAberto = new EstatisticasMaiorPedidoAberto();
+
+        EstatisticasTotais totais = new EstatisticasTotais();
+
         App app = new App();
 
         Scanner in = new Scanner(System.in);
@@ -14,6 +18,8 @@ public class Test {
         app.adicionarFuncionarios();
 
         Usuario user1 = app.usuarioAtual(5301);
+
+        Administrador admin = app.getAdmins().get(0);
 
         ItemPedido item1= new ItemPedido("A", 100);
         ItemPedido item2= new ItemPedido("B", 100);
@@ -30,14 +36,29 @@ public class Test {
         itens2.add(item2);
 
         Pedido pedido1 = new Pedido("1",itens1,user1,"a");
-        Pedido pedido2 = new Pedido("2",itens1,user1,"a");
+        Pedido pedido2 = new Pedido("2", itens2,user1,"b");
 
 
-        app.getPedidos().add(pedido1);
-        app.getPedidos().add(pedido2);
-        app.buscaPorFuncionario(user1.matricula);
 
-        app.buscarPorData(LocalDate.of(2026,10,1));
+        if (pedido1.getItem() != null){
+            app.getPedidos().add(pedido1);
+        }
+        if (pedido2.getItem() != null){
+            app.getPedidos().add(pedido2);
+        }
+
+        maiorPedidoAberto.mostrar(admin,app.getPedidos());
+
+        app.avaliarPedidos(admin,pedido1,in);
+        app.avaliarPedidos(admin,pedido2,in);
+
+
+
+
+
+
+
+
 
 
 

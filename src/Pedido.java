@@ -46,24 +46,22 @@ public class Pedido implements IntPedidos {
         String nome = in.nextLine();
 
         System.out.println("Digite o valor do item: ");
-        double valor = in.nextDouble();
+        double valor = Double.parseDouble(in.nextLine());
 
         ItemPedido item = new ItemPedido(nome,valor);
         this.item.add(item);
 
         System.out.println("1 - Cadastrar novo item");
         System.out.println("2 - Sair");
-        int opcao = in.nextInt();
+        int opcao = Integer.parseInt(in.nextLine());
 
-        switch(opcao){
+        switch(opcao) {
             case 1:
-                in.nextLine();
                 cadastroItem(in);
                 break;
             case 2:
                 break;
         }
-
     }
 
     public double calculaValor(){
@@ -74,12 +72,14 @@ public class Pedido implements IntPedidos {
         return valor;
     }
 
-    public void cadastroPedido(Scanner in) {
+    public void cadastroPedido(Scanner in, Usuario usuarioAtual) {
         System.out.println("Digite o id do pedido");
         String id = in.nextLine();
         this.id = id;
 
         this.cadastroItem(in);
+
+        this.funcionario = usuarioAtual;
 
         valorT = calculaValor();
 
@@ -88,10 +88,7 @@ public class Pedido implements IntPedidos {
             return;
         }
 
-
         this.dataPedido = LocalDate.now();
-
-        in.nextLine();
 
         System.out.println("Escreva uma breve descrição do pedido");
         String descricao = in.nextLine();

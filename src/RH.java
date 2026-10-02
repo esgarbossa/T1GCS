@@ -28,7 +28,7 @@ public class RH extends Usuario{
     }
 
     public double getLimite(){
-        return 300000.00;
+        return 20000.00;
     }
 
 }

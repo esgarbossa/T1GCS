@@ -2,6 +2,9 @@ import java.util.List;
 
 public class EstatisticasMaiorPedidoAberto {
 
+    public EstatisticasMaiorPedidoAberto(){
+    }
+
     public void mostrar(Usuario usuarioAtual, List<Pedido> pedidos) {
         if (!(usuarioAtual instanceof Administrador)) {
             System.out.println("Acesso permitido apenas a administradores.");

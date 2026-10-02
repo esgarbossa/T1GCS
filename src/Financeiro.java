@@ -29,7 +29,7 @@ public class Financeiro extends Usuario{
     }
 
     public double getLimite(){
-        return 300000.00;
+        return 30000.00;
     }
 
 }
