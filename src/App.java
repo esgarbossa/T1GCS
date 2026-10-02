@@ -1,5 +1,6 @@
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class App {
 
@@ -135,6 +136,38 @@ public class App {
             System.out.println("Descrição: " +  items.get(i).getNome());
             System.out.println("Valor: " +  items.get(i).getValor());
             System.out.println("=========================================");
+        }
+    }
+
+    public void avaliarPedidos(Administrador administrador, Pedido pedido, Scanner sc){
+        if(administrador.getTipo().equalsIgnoreCase("Administrador")){
+            System.out.println("Digite a senha");
+            String senha = sc.nextLine();
+            if(senha.equalsIgnoreCase(administrador.getSenha())){
+                resumoPedido(pedido);
+                System.out.println("[1] Aprovar pedido");
+                System.out.println("[2] Reprovar pedido");
+                int op = sc.nextInt();
+                switch (op){
+                    case 1:
+                        pedido.setStatus("Aprovado");
+                        System.out.println("Pedido aprovado com sucesso!");
+                        break;
+                    case 2:
+                        pedido.setStatus("Reprovado");
+                        System.out.println("Pedido reprovado com sucesso!");
+                        break;
+                    default:
+                        System.out.println("Opcao nao valida!");
+                        break;
+                }
+            }else{
+                System.out.println("Senha incorreta");
+                return;
+            }
+        }else{
+            System.out.println("Usuario nao autorizado.");
+            return;
         }
     }
 
