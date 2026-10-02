@@ -13,6 +13,9 @@ public class Menu {
             case 4:
             case 5:
             case 6:
+            case 7:
+            case 8:
+            case 9:
                 return true;
             default:
                 return false;
@@ -89,10 +92,14 @@ public class Menu {
             System.out.println("[4] - Buscar pedido por data" + StatusOpcaoAdministrador(4));
             System.out.println("[5] - Avaliar pedido" + StatusOpcaoAdministrador(5));
             System.out.println("[6] - Cadastrar funcionario" + StatusOpcaoAdministrador(6));
+            System.out.println("[7] - Estatísticas totais" + StatusOpcaoAdministrador(7));
+            System.out.println("[8] - Estatísticas dos últimos 30 dias" + StatusOpcaoAdministrador(8));
+            System.out.println("[9] - Maior pedido aberto" + StatusOpcaoAdministrador(9));
+            System.out.println("[0] - Voltar");
             System.out.println("[0] - Voltar");
             int opcao = in.nextInt();
             in.nextLine();
-            if (opcao >= 1 && opcao <= 6 && !OpcaoAdministradorDisponivel(opcao)){
+            if (opcao >= 1 && opcao <= 9 && !OpcaoAdministradorDisponivel(opcao)){
                 System.out.println("Essa opção ainda está indisponível.");
                 continue;
             }
@@ -184,6 +191,17 @@ public class Menu {
                             System.out.println("Funcionário cadastrado com sucesso!");
                         }
                     }
+                    break;
+                case 7:
+                    EstatisticasTotais totais = new EstatisticasTotais();
+                    totais.mostrar(adm, app.getPedidos());
+                    break;
+                case 8:
+                    EstatisticasUltimos30Dias ultimos30Dias = new EstatisticasUltimos30Dias();
+                    ultimos30Dias.mostrar(adm, app.getPedidos());
+                    break;
+                case 9:
+                    EstatisticasMaiorPedidoAberto maiorPedidoAberto = new EstatisticasMaiorPedidoAberto();maiorPedidoAberto.mostrar(adm, app.getPedidos());
                     break;
                 case 0:
                     System.out.println("Voltando para a tela inicial...");
