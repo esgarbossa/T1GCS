@@ -37,6 +37,19 @@ public class App {
         return null;
     }
 
+    public void buscaPorFuncionario(int matricula){
+        boolean encontrou = false;
+        for (int i = 0;i < usuarios.size(); i++){
+            if (pedidos.get(i).getFuncionario().getMatricula() == matricula){
+                resumoPedido(pedidos.get(i));
+                encontrou = true;
+            }
+        }
+        if (!encontrou){
+            System.out.println("O funcionário não lançou nenhum pedido");
+        }
+    }
+
     public void buscarPorData(LocalDate data){
         boolean encontrou = false;
         for (int i = 0; i < pedidos.size();i++){
