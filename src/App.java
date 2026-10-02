@@ -83,6 +83,11 @@ public class App {
         System.out.println("Funcionario Solicitante: ");
         System.out.println(pedido.getFuncionario().toString());
         System.out.println(pedido.getDataPedido());
+        if (pedido.getDataConclusao() == null){
+            System.out.println("Pedido não concluido");
+        } else {
+            System.out.println(pedido.getDataConclusao());
+        }
         System.out.println("Status: " + pedido.getStatus());
         System.out.println("\n####################################\n");
     }
